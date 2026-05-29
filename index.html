@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Youdee Hotel Patong — Investment Memorandum</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --gold:#C9A84C;
+  --gold-lt:#E8D08A;
+  --gold-dk:#8B6914;
+  --navy:#0B1829;
+  --navy2:#112036;
+  --navy3:#1A2F4A;
+  --slate:#2C3E55;
+  --mid:#4A5C72;
+  --muted:#7A8FA6;
+  --pale:#B0C0D0;
+  --cream:#F5F1E8;
+  --cream2:#EDE7D8;
+  --white:#FFFFFF;
+  --red:#C0392B;
+  --green:#1A7A4A;
+  --green-lt:#2ECC71;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Barlow', sans-serif;
+  background-color:var(--navy);
+  color:var(--pale);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:var(--navy);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3, .serif{font-family:'Cormorant Garamond', serif;}
+.condensed{font-family:'Barlow Condensed', sans-serif;text-transform:uppercase;letter-spacing:1px;}
+
+/* ── NAVIGATION ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:between;
+  padding:20px 40px;
+  background:rgba(11,24,41,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+  display: flex;
+  justify-content: space-between;
+}
+.nav-brand{font-size:20px;font-weight:600;color:var(--white);letter-spacing:2px;}
+.nav-brand span{color:var(--gold);}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{
+  color:var(--pale);text-decoration:none;font-size:12px;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-badge{
+  border:1px solid var(--gold);padding:4px 12px;
+  color:var(--gold);font-size:11px;font-weight:600;
+}
+
+/* ── HERO SECTION ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:120px 40px 60px;
+  background:linear-gradient(180deg, rgba(11,24,41,0.6) 0%, var(--navy) 100%), 
+             url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80') center/cover no-repeat;
+}
+.hero-content{max-width:800px;width:100%;margin:0 auto;}
+.hero-tagline{color:var(--gold);font-size:14px;letter-spacing:3px;margin-bottom:16px;}
+.hero-title{
+  font-size:clamp(36px, 6vw, 72px);
+  font-weight:400;color:var(--white);line-height:1.1;margin-bottom:20px;
+}
+.hero-title strong{font-weight:700;color:var(--gold-lt);}
+.hero-desc{font-size:18px;color:var(--cream);max-width:650px;margin-bottom:36px;font-weight:300;}
+
+/* ── METRICS STRIP ── */
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(4, 1fr);
+  gap:20px;margin-bottom:4px;
+}
+.metric-card{
+  background:var(--navy2);border-top:3px solid var(--gold);
+  padding:24px;border-radius:4px;
+}
+.metric-label{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.metric-value{font-size:28px;font-weight:700;color:var(--white);}
+.metric-value.highlight{color:var(--gold-lt);}
+
+/* ── SECTION CORE STYLE ── */
+section{padding:100px 40px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.container{max-width:1100px;margin:0 auto;}
+.section-header{margin-bottom:50px;}
+.section-subtitle{color:var(--gold);font-size:12px;letter-spacing:3px;display:block;margin-bottom:8px;}
+.section-title{font-size:42px;color:var(--white);font-weight:600;}
+.section-title span{color:var(--gold-lt);font-style:italic;}
+
+/* ── GRID LAYOUTS ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+.card{background:var(--navy2);padding:30px;border-radius:6px;border:1px solid rgba(255,255,255,0.03);}
+
+/* ── PROPERTY DETAIL LIST ── */
+.detail-list{list-style:none;}
+.detail-list li{
+  display:flex;justify-content:space-between;padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);font-size:14px;
+}
+.detail-list li:last-child{border-bottom:none;}
+.detail-label{color:var(--muted);}
+.detail-val{color:var(--white);font-weight:500;}
+
+/* ── RESPONSIVE TABLE SYSTEM ── */
+.table-responsive-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 24px 0;
+  border: 1px solid var(--navy3);
+  border-radius: 6px;
+  background: var(--navy2);
+}
+.invest-table{
+  width:100%;border-collapse:collapse;text-align:left;
+  min-width: 750px; /* การันตีว่าบนมือถือตารางจะไม่บีบตัวจนเสียรูป */
+}
+.invest-table th{
+  background:var(--navy3);color:var(--gold-lt);
+  padding:16px 20px;font-size:12px;font-weight:600;
+}
+.invest-table td{
+  padding:16px 20px;font-size:14px;
+  border-bottom:1px solid rgba(255,255,255,0.05);color:var(--white);
+}
+.invest-table tr:last-child td{border-bottom:none;}
+.invest-table tr:hover td{background:rgba(201,168,76,0.04);}
+.num-col{text-align:right;font-variant-numeric:tabular-nums;}
+.text-green{color:var(--green-lt);font-weight:600;}
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box{
+  background:linear-gradient(135deg, var(--navy3) 0%, rgba(11,24,41,0.9) 100%);
+  border-left:4px solid var(--gold);padding:30px;border-radius:0 6px 6px 0;
+}
+
+/* ── ASKING PRICE BANNER ── */
+.asking-banner{
+  background:linear-gradient(90deg, var(--gold-dk), var(--navy2));
+  padding:40px;border-radius:6px;text-align:center;margin-top:5px;
+  border: 1px solid var(--gold);
+}
+.asking-title{font-size:18px;color:var(--cream);letter-spacing:2px;margin-bottom:10px;}
+.asking-price{font-size:clamp(32px, 5vw, 54px);font-weight:700;color:var(--white);font-family:'Barlow Condensed',sans-serif;}
+
+/* ── CONTACT & DISCLAIMER ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;}
+.contact-item{display:flex;gap:16px;margin-bottom:20px;}
+.contact-icon{color:var(--gold);font-size:20px;font-weight:bold;}
+.disclaimer{
+  font-size:12px;color:var(--muted);line-height:1.8;
+  border-top:1px solid rgba(255,255,255,0.05);padding-top:20px;margin-top:40px;
+}
+
+/* ── ADVANCED RESPONSIVE MEDIA QUERIES ── */
+@media (max-width: 991px) {
+  nav { padding: 15px 20px; }
+  .nav-links { gap: 15px; }
+  section { padding: 70px 20px; }
+  .two-col { grid-template-columns: 1fr; gap: 30px; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 600px) {
+  nav {
+    position: static;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 20px 15px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero { padding: 40px 15px; min-height: auto; }
+  section { padding: 50px 15px; }
+  .metrics-grid { grid-template-columns: 1fr; gap: 12px; }
+  .metric-card { padding: 18px; border-left: 3px solid var(--gold); border-top: none; }
+  .section-title { font-size: 30px; }
+  .card, .highlight-box, .asking-banner { padding: 20px; }
+  
+  /* บังคับการตัดคำและการจัดเรียงเนื้อหาแนวตั้งในส่วนของลิสต์รายละเอียด */
+  .detail-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .detail-val { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand class-serif">YOUDEE <span>HOTEL</span></div>
+  <div class="nav-links condensed">
+    <a href="#summary">Summary</a>
+    <a href="#overview">Overview</a>
+    <a href="#financials">Financials</a>
+    <a href="#reposition">Reposition</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-badge condensed">JOE COLLECTION</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tagline condensed">Investment Opportunity · Patong, Phuket</div>
+    <h1 class="hero-title">Welcome to <strong>Youdee Hotel Patong</strong></h1>
+    <p class="hero-desc">
+      (Formerly Meir Jarr Hotel) — A premium turnaround asset featuring 83 keys of freehold chanote real estate, strategically positioned in the absolute heart of Patong's high-yield tourism district.
+    </p>
+    
+    <div class="metrics-grid condensed">
+      <div class="metric-card">
+        <div class="metric-label">Total Asset Keys</div>
+        <div class="metric-value">83 Rooms</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Land Tenure</div>
+        <div class="metric-value highlight">Freehold</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Targeted Stabilized ROI</div>
+        <div class="metric-value" style="color:var(--green-lt)">12.4%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Est. Future Exit Value</div>
+        <div class="metric-value highlight">THB 580M+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle condensed">The Opportunity</span>
+      <h2 class="section-title">Executive <span>Investment Summary</span></h2>
+    </div>
+    
+    <div class="two-col">
+      <div>
+        <p style="margin-bottom:20px;font-size:16px;">
+          <strong>Youdee Hotel Patong</strong> offers institutional and private investors an exceptional entry point into Phuket's booming hospitality industry. By capitalizing on an existing under-managed structure, the investment model centers on strategic capital deployment, asset modernization, and aggressive operational repositioning.
+        </p>
+        <div class="highlight-box">
+          <h3 style="color:var(--white);font-size:20px;margin-bottom:10px;">The Value-Add Thesis</h3>
+          <p style="font-size:14px;color:var(--cream);">
+            Acquiring a structurally sound hospitality asset at a significant discount to reproduction costs, immediately followed by modernization to capture the premium midscale international and domestic travel demographics.
+          </p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3 class="class-serif" style="color:var(--gold-lt);font-size:22px;margin-bottom:15px;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:10px;">Investment Highlights</h3>
+        <ul class="detail-list">
+          <li><span class="detail-label">Asset Name</span><span class="detail-val">Youdee Hotel Patong (Formerly Meir Jarr)</span></li>
+          <li><span class="detail-label">Location</span><span class="detail-val">Prachanukhro Road, Patong, Phuket</span></li>
+          <li><span class="detail-label">Inventory Size</span><span class="detail-val">83 Fully Equipped Keys</span></li>
+          <li><span class="detail-label">Land Title</span><span class="detail-val">Chanote (Freehold Absolute Ownership)</span></li>
+          <li><span class="detail-label">Key Amenities</span><span class="detail-val">Rooftop Pool, Restaurant, Elevator Access</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="overview" style="background-color:var(--navy2);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle condensed">Location Intelligence</span>
+      <h2 class="section-title">Strategic <span>Micro-Location Positioning</span></h2>
+    </div>
+    
+    <div class="two-col">
+      <div class="card">
+        <h3 class="class-serif" style="color:var(--gold-lt);font-size:22px;margin-bottom:15px;">Proximity Infrastructure</h3>
+        <p style="font-size:14px;margin-bottom:15px;">
+          The property is nestled perfectly inside Patong's core action zone, minimizing guest transportation requirements and maximizing organic walk-in capture potential.
+        </p>
+        <ul class="detail-list">
+          <li><span class="detail-label">Patong Beachfront</span><span class="detail-val">300 Meters (5-Min Walk)</span></li>
+          <li><span class="detail-label">Bangla Road Nightlife</span><span class="detail-val">800 Meters</span></li>
+          <li><span class="detail-label">Jungceylon Shopping Mall</span><span class="detail-val">900 Meters</span></li>
+          <li><span class="detail-label">Phuket International Airport</span><span class="detail-val">45 Kilometers</span></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="class-serif" style="color:var(--white);font-size:24px;margin-bottom:15px;">The Patong Advantage</h3>
+        <p style="margin-bottom:15px;font-size:15px;">
+          Patong remains the absolute epicenter of Phuket's tourism economy, accounting for the highest room-night demand density on the island. The area enjoys resilient, year-round occupancy floors driven by dynamic international flight infrastructure.
+        </p>
+        <p style="font-size:15px;">
+          As land plots in central Patong approach absolute saturation, existing freehold structures with clean titles achieve tremendous defensive real estate asset values over time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="financials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle condensed">Pro-Forma Modeling</span>
+      <h2 class="section-title">5-Year <span>Performance Stabilization Forecast</span></h2>
+    </div>
+    
+    <p style="margin-bottom:15px;font-size:15px;max-width:750px;">
+      The following model illustrates stabilized growth trajectory post-renovation. Figures are based on conservative market absorption rates and standard upper-midscale competitive set set benchmarks in Patong.
+    </p>
+
+    <div class="table-responsive-container">
+      <table class="invest-table">
+        <thead>
+          <tr>
+            <th>Operating Metric</th>
+            <th class="num-col">Year 1 (Ramp)</th>
+            <th class="num-col">Year 2</th>
+            <th class="num-col">Year 3 (Stabilized)</th>
+            <th class="num-col">Year 4</th>
+            <th class="num-col">Year 5 (Peak)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Average Daily Rate (ADR)</td>
+            <td class="num-col">THB 1,950</td>
+            <td class="num-col">THB 2,200</td>
+            <td class="num-col" style="color:var(--gold-lt);font-weight:600;">THB 2,500</td>
+            <td class="num-col">THB 2,650</td>
+            <td class="num-col">THB 2,800</td>
+          </tr>
+          <tr>
+            <td>Average Occupancy Rate</td>
+            <td class="num-col">68.0%</td>
+            <td class="num-col">74.0%</td>
+            <td class="num-col" style="color:var(--gold-lt);font-weight:600;">78.0%</td>
+            <td class="num-col">80.0%</td>
+            <td class="num-col">82.0%</td>
+          </tr>
+          <tr>
+            <td>Gross Rooms Revenue</td>
+            <td class="num-col">THB 40.2M</td>
+            <td class="num-col">THB 49.3M</td>
+            <td class="num-col">THB 59.0M</td>
+            <td class="num-col">THB 64.3M</td>
+            <td class="num-col">THB 71.1M</td>
+          </tr>
+          <tr>
+            <td>Total F&amp;B &amp; Ancillary Income</td>
+            <td class="num-col">THB 6.0M</td>
+            <td class="num-col">THB 7.8M</td>
+            <td class="num-col">THB 9.4M</td>
+            <td class="num-col">THB 10.8M</td>
+            <td class="num-col">THB 12.1M</td>
+          </tr>
+          <tr style="background-color:rgba(255,255,255,0.02)">
+            <td style="font-weight:600;color:var(--white)">Gross Operating Revenue (GOR)</td>
+            <td class="num-col style-bold">THB 46.2M</td>
+            <td class="num-col style-bold">THB 57.1M</td>
+            <td class="num-col style-bold" style="color:var(--gold-lt)">THB 68.4M</td>
+            <td class="num-col style-bold">THB 75.1M</td>
+            <td class="num-col style-bold">THB 83.2M</td>
+          </tr>
+          <tr>
+            <td>Undistributed Operating Expenses</td>
+            <td class="num-col">THB (27.7M)</td>
+            <td class="num-col">THB (31.4M)</td>
+            <td class="num-col">THB (34.2M)</td>
+            <td class="num-col">THB (36.8M)</td>
+            <td class="num-col">THB (39.1M)</td>
+          </tr>
+          <tr style="background-color:rgba(26,122,74,0.08)">
+            <td style="font-weight:700;color:var(--green-lt)">Net Operating Income (NOI)</td>
+            <td class="num-col text-green">THB 18.5M</td>
+            <td class="num-col text-green">THB 25.7M</td>
+            <td class="num-col text-green" style="font-size:15px;">THB 34.2M</td>
+            <td class="num-col text-green">THB 38.3M</td>
+            <td class="num-col text-green">THB 44.1M</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="reposition" style="background-color:var(--navy2);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle condensed">Value Optimization Path</span>
+      <h2 class="section-title">Repositioning &amp; <span>Capex Strategy</span></h2>
+    </div>
+    
+    <div class="two-col">
+      <div>
+        <h3 class="class-serif" style="color:var(--white);font-size:24px;margin-bottom:15px;">Asset Transformation Pillars</h3>
+        <p style="margin-bottom:20px;">
+          The current unbranded identity allows the incoming ownership to implement an agile, modern tech-driven brand blueprint without legacy friction. 
+        </p>
+        <p style="margin-bottom:25px;">
+          Capital spending targets high-impact guest journey touchpoints: premium bedding systems, cloud-based property management systems (PMS) to streamline overheads, and a complete aesthetic transformation of the rooftop asset into a premium sky lounge sanctuary.
+        </p>
+      </div>
+      
+      <div>
+        <div class="card" style="margin-bottom:20px;">
+          <h4 class="condensed" style="color:var(--gold);font-size:13px;margin-bottom:10px;">Phase 1: Physical Infrastructure</h4>
+          <p style="font-size:14px;color:var(--cream);">Facade refresh, smart-room energy saving switch installations, rooftop pool deck enhancement.</p>
+        </div>
+        <div class="card">
+          <h4 class="condensed" style="color:var(--gold);font-size:13px;margin-bottom:10px;">Phase 2: Distribution Maximization</h4>
+          <p style="font-size:14px;color:var(--cream);">Direct engine optimization, channel manager integrations, global corporate MICE sales contracting.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="asking-banner">
+      <div class="asking-title condensed">Exclusive Asset Acquisition Value</div>
+      <div class="asking-price">CONTACT ADVISOR FOR PRICE DETAILS</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle condensed">Transaction Access</span>
+      <h2 class="section-title">Direct <span>Deal Maker Communication</span></h2>
+    </div>
+    
+    <div class="contact-grid">
+      <div>
+        <h3 class="class-serif" style="color:var(--white);font-size:24px;margin-bottom:20px;">Transaction Desk</h3>
+        <div class="contact-item">
+          <div class="contact-icon">👤</div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;">Lead Transaction Advisor</div>
+            <div style="color:var(--white);font-weight:600;font-size:16px;">Monthon Mahakijdumrongnukul (Joe)</div>
+            <div style="color:var(--gold-lt);font-size:13px;">JOE COLLECTION / JOE LAND</div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;">Secure Communication Email</div>
+            <div style="color:var(--white);font-weight:600;"><a href="mailto:joecollection.m@gmail.com" style="color:var(--white);text-decoration:none;">joecollection.m@gmail.com</a></div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;">Direct Negotiation Line</div>
+            <div style="color:var(--white);font-weight:600;">+66 80-657-8387</div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="class-serif" style="color:var(--white);font-size:24px;margin-bottom:15px;">Due Diligence Checklist</h3>
+        <p style="font-size:14px;margin-bottom:15px;">
+          Qualified investment parties will be granted instant secure virtual data room access upon executing a standard Non-Disclosure Agreement (NDA). Ready documentation items include:
+        </p>
+        <ul class="detail-list">
+          <li><span class="detail-label">✓ Chanote Land Title Deed Copies</span></li>
+          <li><span class="detail-label">✓ Approved Hotel Operating License Records</span></li>
+          <li><span class="detail-label">✓ 3-Year Verified Back-Audit Accounts</span></li>
+          <li><span class="detail-label">✓ Engineering &amp; Structural Integrity Report</span></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="disclaimer">
+      <strong>DISCLAIMER:</strong> This investment memorandum has been prepared by <strong>JOE COLLECTION</strong> for informational purposes only and does not constitute a solicitation to invest. All financial projections are forward-looking estimates based on current market conditions and publicly available data. Actual results may differ materially. Prospective investors should conduct their own independent due diligence and consult professional advisors. All figures in Thai Baht (THB). Market data references Knight Frank, C9 Hotelworks, CBRE Thailand, and publicly available booking platforms as at May 2026.
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) {
+      target.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+</script>
+
+</body>
+</html>
