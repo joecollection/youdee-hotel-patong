@@ -1,1486 +1,1980 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Youdee Hotel Patong — Investment Memorandum 2025/2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youdee Hotel Patong | Investment Memorandum | Joe Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-:root{
-  --gold:#C9A84C;
-  --gold-lt:#E8D08A;
-  --gold-dk:#8B6914;
-  --navy:#0B1829;
-  --navy2:#112036;
-  --navy3:#1A2F4A;
-  --slate:#2C3E55;
-  --mid:#4A5C72;
-  --muted:#7A8FA6;
-  --pale:#B0C0D0;
-  --cream:#F5F1E8;
-  --cream2:#EDE7D8;
-  --white:#FFFFFF;
-  --red:#C0392B;
-  --green:#1A7A4A;
-  --green-lt:#E8F5EE;
-  --red-lt:#FDF0EE;
-  --amber:#D4890A;
-  --amber-lt:#FDF4E0;
+:root {
+  --gold:        #C9A84C;
+  --gold-bright: #E8C97A;
+  --gold-pale:   #F5E8C8;
+  --navy:        #08152A;
+  --navy-2:      #0E1E38;
+  --navy-3:      #162844;
+  --teal:        #1A6B6B;
+  --teal-2:      #25918E;
+  --slate:       #7A93AD;
+  --slate-2:     #A0B4C4;
+  --white:       #FFFFFF;
+  --green:       #3DAB72;
+  --border:      rgba(201,168,76,0.18);
+  --surface:     rgba(255,255,255,0.03);
+  --lime:        #A8D840;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--navy);font-family:'Barlow',sans-serif;color:var(--white);font-size:15px;line-height:1.6;overflow-x:hidden}
 
-/* TYPOGRAPHY */
-.serif{font-family:'Cormorant Garamond',serif}
-.condensed{font-family:'Barlow Condensed',sans-serif}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* LAYOUT */
-.page{max-width:1100px;margin:0 auto;padding:0 40px}
+html { scroll-behavior: smooth; }
 
-/* ===== TABLE RESPONSIVE WRAPPER ===== */
-.table-responsive {
+body {
+  background: var(--navy);
+  color: var(--slate-2);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmerSweep {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes goldGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.08); }
+}
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+  50%       { box-shadow: 0 0 20px 6px rgba(201,168,76,0.35); }
+}
+
+.d1 { animation-delay: 0.08s; }
+.d2 { animation-delay: 0.16s; }
+.d3 { animation-delay: 0.24s; }
+.d4 { animation-delay: 0.32s; }
+
+/* ── 00A MARQUEE ── */
+@keyframes marqueeMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes tickerMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-wrap {
+  background: var(--gold);
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marqueeMove 42s linear infinite;
+}
+.marquee-item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 2.5px;
+  color: var(--navy);
+  padding: 0 28px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.marquee-dot { color: var(--navy); opacity: 0.5; padding: 0 6px; flex-shrink: 0; }
+
+/* ── 00B HERO ── */
+.hero {
+  background: var(--navy);
+  position: relative;
+  padding: 56px 60px 0;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; left: -120px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,168,76,0.13) 0%, transparent 65%);
+  animation: goldGlow 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+.hero-left { flex: 1; }
+.hero-right { flex-shrink: 0; text-align: right; }
+
+.joe-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.joe-logo span { color: var(--slate); font-weight: 300; font-size: 0.65em; display: block; letter-spacing: 3px; margin-top: 2px; }
+
+.brand-badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.brand-badge {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 4px 12px;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.brand-badge.teal { background: rgba(26,107,107,0.18); border-color: rgba(37,145,142,0.3); color: var(--teal-2); }
+.brand-badge.green { background: rgba(61,171,114,0.12); border-color: rgba(61,171,114,0.25); color: var(--green); }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5.5vw, 58px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+.hero h1 em { font-style: italic; color: var(--gold-bright); }
+.hero-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--slate);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-tagline strong { color: var(--gold); }
+
+.confidential-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--slate);
+  text-transform: uppercase;
+}
+.confidential-badge::before { content: '✦'; color: var(--gold); }
+
+/* ── PRICE STRIP ── */
+.price-strip {
+  background: var(--navy-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  margin-top: 48px;
+  position: relative;
+  z-index: 2;
+}
+.price-strip-item {
+  flex: 1;
+  padding: 20px 24px;
+  border-right: 1px solid var(--border);
+  animation: fadeUp 0.65s ease both;
+}
+.price-strip-item:last-child { border-right: none; }
+.ps-label {
+  font-size: 8.5px;
+  letter-spacing: 2.5px;
+  color: var(--slate);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.ps-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1;
+}
+.ps-value.gold { color: var(--gold); }
+.ps-value.lime { color: var(--lime); }
+.ps-value.green { color: var(--green); }
+.ps-value.teal { color: var(--teal-2); }
+.ps-sub { font-size: 9px; color: var(--slate); margin-top: 3px; letter-spacing: 1px; }
+
+/* ── 00C TICKER ── */
+.ticker-wrap {
+  background: #060F1E;
+  border-bottom: 1px solid var(--border);
+  height: 42px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.ticker-badge {
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 0 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  z-index: 2;
+  position: relative;
+}
+.ticker-fade {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to right, transparent, #060F1E);
+  z-index: 3;
+  pointer-events: none;
+}
+.ticker-track-wrap { overflow: hidden; flex: 1; }
+.ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+.ticker-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  animation: tickerMove 55s linear infinite;
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 22px;
+  border-right: 1px solid rgba(201,168,76,0.1);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.ticker-item .t-label { color: var(--slate); font-size: 8.5px; margin-right: 4px; }
+.ticker-item .t-val { color: var(--white); }
+.ticker-item .t-val.gold { color: var(--gold); }
+.ticker-item .t-val.green { color: var(--green); }
+.ticker-item .t-val.teal { color: var(--teal-2); }
+.ticker-item .t-sub { color: var(--slate); font-size: 8.5px; }
+
+/* ── SECTION SYSTEM ── */
+.section { padding: 64px 60px; }
+.section-alt { background: rgba(255,255,255,0.012); }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  color: var(--slate);
+  white-space: nowrap;
+}
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201,168,76,0.35), transparent);
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+}
+.card.card-teal::before { background: linear-gradient(to right, var(--teal-2), transparent); }
+.card.card-green::before { background: linear-gradient(to right, var(--green), transparent); }
+.card.card-gold-border { border-color: var(--gold); border-width: 2px; }
+
+/* ── 01 KPI RIBBON ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.kpi-cell {
+  background: var(--navy-2);
+  padding: 20px 18px;
+  text-align: center;
+  animation: fadeUp 0.65s ease both;
+}
+.kpi-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--slate);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.kpi-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1;
+}
+.kpi-value.gold { color: var(--gold); }
+.kpi-value.green { color: var(--green); }
+.kpi-value.teal { color: var(--teal-2); }
+.kpi-sub {
+  font-size: 9px;
+  color: var(--slate);
+  margin-top: 4px;
+}
+
+/* ── 02 ASSET OVERVIEW ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.four-col { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+
+.fact-chip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.fact-chip {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 10px 14px;
+}
+.fact-chip-label { font-size: 8px; letter-spacing: 2px; color: var(--slate); text-transform: uppercase; margin-bottom: 3px; }
+.fact-chip-value { font-size: 12px; font-weight: 600; color: var(--white); }
+
+.operator-callout {
+  background: rgba(201,168,76,0.07);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-left: 3px solid var(--gold);
+  border-radius: 2px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+.operator-callout-label { font-size: 8px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; font-weight: 700; }
+.operator-callout-value { font-size: 13px; font-weight: 600; color: var(--white); }
+
+.market-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.market-stat-row:last-child { border-bottom: none; }
+.msr-label { font-size: 10px; color: var(--slate-2); }
+.msr-value { font-size: 12px; font-weight: 700; color: var(--white); }
+.msr-badge {
+  font-size: 8px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.badge-green { background: rgba(61,171,114,0.15); color: var(--green); border: 1px solid rgba(61,171,114,0.3); }
+.badge-gold { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.25); }
+.badge-teal { background: rgba(37,145,142,0.12); color: var(--teal-2); border: 1px solid rgba(37,145,142,0.25); }
+
+.sub-market-callout {
+  background: rgba(37,145,142,0.08);
+  border: 1px solid rgba(37,145,142,0.25);
+  border-left: 3px solid var(--teal-2);
+  border-radius: 2px;
+  padding: 14px 16px;
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--slate-2);
+  line-height: 1.6;
+}
+.sub-market-callout strong { color: var(--teal-2); }
+
+/* ── 03 SCENARIO CARDS ── */
+.scenario-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.scenario-card {
+  background: var(--navy-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0;
+  overflow: hidden;
+  animation: fadeUp 0.65s ease both;
+}
+.scenario-card.best {
+  border-color: var(--gold);
+  border-width: 2px;
+  box-shadow: 0 0 30px rgba(201,168,76,0.12);
+}
+.scenario-header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.best-badge {
+  position: absolute;
+  top: -1px; right: -1px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 7.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+.scenario-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.scenario-desc { font-size: 10.5px; color: var(--slate-2); line-height: 1.5; }
+.scenario-metrics { padding: 16px 20px; }
+.sm-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 10px;
+}
+.sm-row:last-child { border-bottom: none; }
+.sm-label { color: var(--slate); }
+.sm-value { font-weight: 700; color: var(--white); }
+.sm-value.green { color: var(--green); }
+.sm-value.gold { color: var(--gold); }
+.sm-value.teal { color: var(--teal-2); }
+.risk-pill {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.risk-low { background: rgba(61,171,114,0.15); color: var(--green); }
+.risk-med { background: rgba(201,168,76,0.15); color: var(--gold); }
+.risk-high { background: rgba(220,80,60,0.15); color: #E05A40; }
+
+/* ── TABLES ── */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-scroll::-webkit-scrollbar { height: 4px; }
+.table-scroll::-webkit-scrollbar-track { background: var(--navy-3); }
+.table-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+.swipe-hint { font-size: 9px; color: var(--slate); text-align: center; margin-top: 8px; display: none; }
+
+table {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin-bottom: 20px;
+  min-width: 500px;
+  border-collapse: collapse;
+  font-size: 11.5px;
 }
-/* Prevent tables from shrinking too much on small screens */
-.fin-table { min-width: 600px; }
-.info-table { min-width: 100%; }
+thead th {
+  background: rgba(201,168,76,0.12);
+  color: var(--gold);
+  font-size: 8.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--slate-2);
+  vertical-align: middle;
+}
+tbody tr:hover td { background: rgba(201,168,76,0.035); }
+tfoot td {
+  padding: 10px 14px;
+  font-size: 10px;
+  font-weight: 600;
+  border-top: 1px solid var(--border);
+}
+.td-white { color: var(--white) !important; font-weight: 600; }
+.td-gold { color: var(--gold) !important; font-weight: 700; }
+.td-green { color: var(--green) !important; font-weight: 700; }
+.td-teal { color: var(--teal-2) !important; }
 
-/* ===== COVER ===== */
-#cover{
-  min-height:100vh;
-  background:linear-gradient(165deg,var(--navy) 0%,var(--navy2) 40%,var(--navy3) 100%);
-  position:relative;overflow:hidden;
-  display:flex;flex-direction:column;
+/* ── TIER TAGS ── */
+.tier-tag {
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-#cover::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.3' opacity='0.08'%3E%3Crect x='1' y='1' width='58' height='58' rx='2'/%3E%3C/g%3E%3C/svg%3E") repeat;
-}
-.cover-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:32px 40px;position:relative;z-index:2;
-}
-.cover-header-left{display:flex;flex-direction:column;gap:2px}
-.confidential-tag{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:10px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--gold);border:1px solid rgba(201,168,76,0.4);
-  padding:3px 10px;display:inline-block;width:max-content;
-}
-.doc-id{font-size:11px;color:var(--muted);margin-top:4px;font-weight:300;word-break:break-word}
-.logo-box{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:18px;font-weight:700;letter-spacing:2px;
-  color:var(--gold);border:1.5px solid var(--gold);
-  padding:8px 18px;text-align:center;
-  display:flex;flex-direction:column;gap:1px;
-}
-.logo-box span{font-size:9px;font-weight:400;letter-spacing:4px;color:var(--pale)}
+.tier-subject { background: rgba(201,168,76,0.18); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.tier-upper { background: rgba(37,145,142,0.12); color: var(--teal-2); border: 1px solid rgba(37,145,142,0.25); }
+.tier-luxury { background: rgba(61,171,114,0.12); color: var(--green); border: 1px solid rgba(61,171,114,0.25); }
+.tier-mid { background: rgba(122,147,173,0.12); color: var(--slate-2); border: 1px solid rgba(122,147,173,0.25); }
 
-.cover-body{
-  flex:1;display:flex;flex-direction:column;justify-content:center;
-  padding:40px 40px;position:relative;z-index:2;
+/* ── 07 REPLACEMENT COST ── */
+.cost-bar-wrap { margin-bottom: 10px; }
+.cost-bar-label { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.cost-bar-name { font-size: 10px; color: var(--slate-2); }
+.cost-bar-val { font-size: 10px; font-weight: 700; color: var(--white); }
+.cost-bar-track {
+  height: 10px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 2px;
+  overflow: hidden;
 }
-.cover-eyebrow{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:13px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:20px;
-}
-.cover-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:72px;font-weight:300;line-height:1.05;
-  color:var(--white);margin-bottom:8px;
-}
-.cover-title em{font-style:italic;color:var(--gold)}
-.cover-subtitle{
-  font-family:'Cormorant Garamond',serif;
-  font-size:28px;font-weight:300;color:var(--pale);
-  margin-bottom:40px;
-}
-.cover-rule{width:80px;height:1px;background:var(--gold);margin-bottom:40px}
-.cover-facts{display:flex;gap:48px;margin-bottom:60px;flex-wrap:wrap}
-.cover-fact-label{
-  font-size:10px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--muted);margin-bottom:6px;
-  font-family:'Barlow Condensed',sans-serif;
-}
-.cover-fact-value{
-  font-family:'Cormorant Garamond',serif;
-  font-size:28px;color:var(--gold);font-weight:400;
-}
-.cover-fact-unit{font-size:14px;color:var(--pale);margin-left:4px}
-.cover-price-box{
-  border:1px solid rgba(201,168,76,0.5);
-  padding:24px 32px;display:inline-flex;flex-direction:column;gap:4px;
-  background:rgba(201,168,76,0.06);
-}
-.price-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-family:'Barlow Condensed',sans-serif}
-.price-value{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--white);font-weight:300;word-break:break-word}
-.price-sub{font-size:12px;color:var(--muted)}
-.cover-footer{
-  padding:24px 40px;position:relative;z-index:2;
-  border-top:1px solid rgba(201,168,76,0.2);
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:16px;
-}
-.cover-footer-contact{display:flex;flex-direction:column;gap:4px}
-.cfc-name{font-size:13px;font-weight:600;color:var(--gold)}
-.cfc-detail{font-size:12px;color:var(--muted)}
-.cover-footer-badges{display:flex;gap:12px;flex-wrap:wrap}
-.badge{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:10px;letter-spacing:2px;padding:4px 10px;
-  border:1px solid rgba(201,168,76,0.3);color:var(--pale);
-}
+.cost-bar-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+.fill-land { background: linear-gradient(to right, #4A7FBF, #6A9FDF); }
+.fill-construction { background: linear-gradient(to right, var(--teal), var(--teal-2)); }
+.fill-ffose { background: linear-gradient(to right, var(--green), #5AC88A); }
+.fill-soft { background: linear-gradient(to right, #B87A2A, var(--gold)); }
+.fill-total { background: linear-gradient(to right, #E05A40, #C04030); }
+.fill-replacement { background: linear-gradient(to right, var(--gold), var(--gold-bright)); }
+.fill-asking { background: linear-gradient(to right, var(--lime), #C8F060); }
 
-/* ===== SECTION COMMON ===== */
-.section{padding:80px 40px;position:relative}
-.section-alt{background:var(--navy2)}
-.section-cream{background:var(--cream);color:var(--navy)}
-.section-cream .muted{color:var(--mid)}
-.s-eyebrow{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:12px;
+.green-callout {
+  background: rgba(61,171,114,0.08);
+  border: 1px solid rgba(61,171,114,0.25);
+  border-left: 3px solid var(--green);
+  border-radius: 2px;
+  padding: 14px 16px;
+  margin-top: 16px;
 }
-.s-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;font-weight:300;margin-bottom:8px;line-height:1.1;
-}
-.s-sub{font-size:16px;color:var(--pale);margin-bottom:40px;font-weight:300}
-.s-rule{width:48px;height:2px;background:var(--gold);margin-bottom:40px}
-.section-cream .s-title{color:var(--navy)}
-.section-cream .s-sub{color:var(--mid)}
-.section-cream .s-rule{background:var(--gold-dk)}
+.green-callout-title { font-size: 8.5px; letter-spacing: 2px; color: var(--green); text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
+.green-callout-text { font-size: 11px; color: var(--slate-2); line-height: 1.5; }
 
-/* ===== NEW GRID CLASSES FOR RESPONSIVE SUPPORT ===== */
-.roadmap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
-.buyer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
-.review-header-flex { display: flex; gap: 32px; margin-bottom: 32px; align-items: center; }
-.contact-params-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; font-size: 12px; }
+/* ── 08 IRR MATRIX ── */
+.irr-table thead th { background: rgba(201,168,76,0.15); }
+.irr-table tbody td { text-align: center; font-weight: 600; font-size: 11px; }
+.irr-low { background: rgba(220,80,60,0.12); color: #E07060; }
+.irr-med-low { background: rgba(201,168,76,0.08); color: var(--gold); }
+.irr-med { background: rgba(37,145,142,0.1); color: var(--teal-2); }
+.irr-high { background: rgba(61,171,114,0.12); color: var(--green); }
+.irr-very-high { background: rgba(61,171,114,0.2); color: #5ADB92; font-weight: 800; }
 
-/* ===== OVERVIEW GRID ===== */
-.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.info-table{width:100%;border-collapse:collapse}
-.info-table tr{border-bottom:1px solid rgba(201,168,76,0.12)}
-.info-table td{padding:10px 0;vertical-align:top;word-break:break-word}
-.info-table td:first-child{
-  font-size:11px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);font-family:'Barlow Condensed',sans-serif;
-  width:40%;padding-right:12px;
+/* ── 09 EXIT TIMELINE ── */
+.timeline-wrap { position: relative; padding-left: 28px; }
+.timeline-line {
+  position: absolute;
+  left: 8px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
 }
-.info-table td:last-child{font-weight:500;color:var(--white)}
-.section-cream .info-table td:first-child{color:var(--mid)}
-.section-cream .info-table td:last-child{color:var(--navy)}
-.highlight-val{color:var(--gold);font-size:18px;font-family:'Cormorant Garamond',serif}
+.timeline-step { position: relative; margin-bottom: 28px; }
+.timeline-dot {
+  position: absolute;
+  left: -24px; top: 4px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--navy);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+.timeline-dot.final {
+  background: var(--gold);
+  animation: pulseGold 2s ease-in-out infinite;
+}
+.ts-year { font-size: 8.5px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: 700; margin-bottom: 3px; }
+.ts-title { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+.ts-desc { font-size: 10.5px; color: var(--slate); line-height: 1.5; }
 
-/* ===== METRIC CARDS ===== */
-.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
-.metric-card{
-  background:rgba(201,168,76,0.07);
-  border:1px solid rgba(201,168,76,0.2);
-  padding:20px 18px;
-}
-.mc-label{
-  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
-  color:var(--muted);font-family:'Barlow Condensed',sans-serif;margin-bottom:8px;
-}
-.mc-value{
-  font-family:'Cormorant Garamond',serif;
-  font-size:32px;color:var(--gold);font-weight:400;line-height:1.1;word-break:break-word;
-}
-.mc-unit{font-size:14px;color:var(--pale);margin-left:3px}
-.mc-note{font-size:11px;color:var(--muted);margin-top:4px}
+/* ── 10 RISK MATRIX ── */
+.risk-sev-high { color: #E05A40; font-weight: 700; }
+.risk-sev-med { color: var(--gold); font-weight: 700; }
+.risk-sev-low { color: var(--green); font-weight: 700; }
+.risk-prob-high { background: rgba(220,80,60,0.12); color: #E07060; }
+.risk-prob-med { background: rgba(201,168,76,0.1); color: var(--gold); }
+.risk-prob-low { background: rgba(61,171,114,0.1); color: var(--green); }
 
-/* ===== BEFORE/AFTER ===== */
-.ba-container{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(201,168,76,0.3)}
-.ba-panel{padding:32px 28px;position:relative}
-.ba-before{background:rgba(255,255,255,0.03);border-right:1px solid rgba(201,168,76,0.3)}
-.ba-after{background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 100%)}
-.ba-tag{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  padding:4px 12px;display:inline-block;margin-bottom:16px;
+/* ── 11 GUEST SENTIMENT ── */
+.review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 32px; }
+.review-card {
+  background: var(--navy-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
-.ba-before .ba-tag{background:rgba(120,120,120,0.2);color:var(--pale)}
-.ba-after .ba-tag{background:rgba(201,168,76,0.2);color:var(--gold)}
-.ba-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:26px;margin-bottom:24px;font-weight:300;
+.review-card::before {
+  content: '❝';
+  position: absolute;
+  top: 10px; right: 14px;
+  font-size: 32px;
+  color: rgba(201,168,76,0.08);
+  font-family: Georgia, serif;
+  line-height: 1;
 }
-.ba-before .ba-name{color:var(--pale)}
-.ba-after .ba-name{color:var(--gold)}
-.ba-item{
-  display:flex;align-items:flex-start;gap:12px;
-  padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);
-  font-size:13px;
+.review-stars { color: var(--gold); font-size: 12px; margin-bottom: 10px; }
+.review-quote {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 11.5px;
+  color: var(--slate-2);
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
-.ba-item:last-of-type{border-bottom:none}
-.ba-item-icon{
-  width:20px;height:20px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;flex-shrink:0;margin-top:1px;
-}
-.before-icon{background:rgba(150,150,150,0.2);color:var(--pale)}
-.after-icon{background:rgba(201,168,76,0.25);color:var(--gold)}
-.ba-item-label{color:var(--muted);font-size:11px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase}
-.ba-item-val{font-weight:500;word-break:break-word}
-.ba-before .ba-item-val{color:var(--pale)}
-.ba-after .ba-item-val{color:var(--white)}
-.ba-divider{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  z-index:10;
-}
-.ba-arrow{
-  width:44px;height:44px;border-radius:50%;
-  background:var(--gold);color:var(--navy);
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:700;
-  box-shadow:0 0 0 4px var(--navy),0 0 0 6px var(--gold);
-}
-.uplift-bar{
-  background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);
-  padding:20px 24px;margin-top:24px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.ub-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-family:'Barlow Condensed',sans-serif}
-.ub-value{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold)}
+.review-source { font-size: 8.5px; letter-spacing: 1.5px; color: var(--slate); text-transform: uppercase; }
+.review-date { font-size: 8.5px; color: var(--slate); margin-top: 2px; }
 
-/* ===== FINANCIAL MODEL ===== */
-.fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.fin-table-wrap{overflow:hidden;border:1px solid rgba(201,168,76,0.2)}
-.fin-table{width:100%;border-collapse:collapse;font-size:13px}
-.fin-table thead tr{background:rgba(201,168,76,0.12)}
-.fin-table thead th{
-  padding:10px 14px;text-align:left;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold);font-weight:500;white-space:nowrap;
-}
-.fin-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.05)}
-.fin-table tbody tr:hover{background:rgba(201,168,76,0.04)}
-.fin-table td{padding:9px 14px;color:var(--pale);white-space:nowrap;}
-.fin-table td:first-child{color:var(--white);font-weight:500;white-space:normal;}
-.fin-table td.num{text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:13px}
-.fin-table tr.total-row{background:rgba(201,168,76,0.1);border-top:1px solid rgba(201,168,76,0.3)}
-.fin-table tr.total-row td{color:var(--gold);font-weight:600}
-.fin-table tr.sub-row td:first-child{padding-left:28px;color:var(--muted);font-weight:300;font-style:italic}
-.negative{color:#E87070!important}
-.positive{color:#5DB88A!important}
+.sentiment-bar-wrap { margin-bottom: 12px; }
+.sb-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.sb-label { font-size: 10px; color: var(--slate-2); }
+.sb-score { font-size: 10px; font-weight: 700; color: var(--white); }
+.sb-track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; }
+.sb-fill { height: 100%; border-radius: 3px; background: linear-gradient(to right, var(--gold), var(--gold-bright)); }
 
-.fin-section-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:12px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--gold);padding:8px 14px;
-  background:rgba(201,168,76,0.06);border-bottom:1px solid rgba(201,168,76,0.15);
+/* ── 12 DEAL BOX ── */
+.deal-box {
+  background: var(--navy-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 52px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.deal-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+}
+.deal-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 4vw, 40px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-bright);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+.deal-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 8vw, 72px);
+  font-weight: 600;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.deal-price-sub { font-size: 12px; color: var(--slate); letter-spacing: 2px; margin-bottom: 28px; }
+.deal-divider { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 28px; }
+.deal-thesis {
+  font-size: 12px;
+  color: var(--slate-2);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+.deal-thesis p { margin-bottom: 14px; }
+.pill-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.pill {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--gold);
+  text-transform: uppercase;
 }
 
-/* ===== EXIT STRATEGY ===== */
-.exit-scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.exit-card{border:1px solid rgba(201,168,76,0.2);overflow:hidden}
-.exit-card-header{padding:16px 20px;background:rgba(201,168,76,0.08)}
-.exit-card-tag{
-  font-size:9px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--muted);font-family:'Barlow Condensed',sans-serif;margin-bottom:4px;
+/* ── 13 CONTACT FOOTER ── */
+.contact-footer {
+  background: var(--navy-2);
+  border-top: 1px solid var(--border);
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
-.exit-card-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;font-weight:300;color:var(--gold);
-}
-.exit-card.featured .exit-card-header{background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(201,168,76,0.08))}
-.exit-card.featured .exit-card-name{color:var(--gold-lt)}
-.exit-card-body{padding:20px}
-.ec-row{
-  display:flex;justify-content:space-between;align-items:baseline;
-  padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);
-  font-size:12px;
-}
-.ec-row:last-child{border-bottom:none}
-.ec-key{color:var(--muted)}
-.ec-val{font-weight:600;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;text-align:right;}
-.ec-moic{
-  margin-top:16px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.25);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.ec-moic-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'Barlow Condensed',sans-serif}
-.ec-moic-val{
-  font-family:'Cormorant Garamond',serif;
-  font-size:36px;color:var(--gold);
-}
-.ec-moic-val.featured{color:var(--gold-lt);font-size:44px}
+.cf-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.cf-title { font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+.cf-contact { font-size: 12px; color: var(--slate-2); margin-top: 6px; }
+.cf-contact a { color: var(--gold); text-decoration: none; }
+.cf-middle { text-align: center; }
+.cf-right { text-align: right; }
+.cf-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.cf-logo-sub { font-size: 8px; letter-spacing: 3px; color: var(--slate); text-transform: uppercase; }
 
-/* ===== VALUE DRIVERS ===== */
-.drivers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.driver-card{padding:24px;border-left:3px solid var(--gold);background:rgba(255,255,255,0.03)}
-.driver-number{
-  font-family:'Cormorant Garamond',serif;
-  font-size:52px;color:rgba(201,168,76,0.2);font-weight:300;line-height:1;
-  margin-bottom:4px;
-}
-.driver-title{font-size:14px;font-weight:600;color:var(--gold);margin-bottom:8px}
-.driver-text{font-size:13px;color:var(--muted);line-height:1.6}
-.driver-metric{
-  margin-top:12px;padding-top:12px;border-top:1px solid rgba(201,168,76,0.15);
-  font-size:18px;font-family:'Cormorant Garamond',serif;color:var(--white);
+/* ── 14 DISCLAIMER ── */
+.disclaimer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 24px 60px;
+  text-align: center;
+  font-size: 8.5px;
+  color: var(--slate);
+  line-height: 1.8;
+  letter-spacing: 0.3px;
 }
 
-/* ===== MARKET CONTEXT ===== */
-.market-cols{display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px}
-.market-stat-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 0;border-bottom:1px solid rgba(201,168,76,0.1);
-}
-.msr-key{font-size:13px;color:var(--pale)}
-.msr-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold)}
-.comp-set{margin-top:20px}
-.comp-item{
-  display:flex;align-items:center;gap:14px;
-  padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);
-}
-.comp-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.comp-name{font-size:13px;font-weight:600;color:var(--white)}
-.comp-tier{font-size:11px;color:var(--muted);margin-left:auto;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px}
+/* ── FOOTNOTE ── */
+.footnote { font-size: 9.5px; color: var(--slate); margin-top: 14px; line-height: 1.6; font-style: italic; }
 
-/* ===== INVESTMENT THESIS ===== */
-.thesis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.thesis-item{
-  padding:20px;background:rgba(255,255,255,0.03);
-  border-top:2px solid var(--gold);
-}
-.ti-title{font-size:14px;font-weight:600;color:var(--gold);margin-bottom:8px}
-.ti-body{font-size:13px;color:var(--muted);line-height:1.6}
-
-/* ===== REPLACEMENT COST ===== */
-.rc-visual{
-  background:var(--navy2);border:1px solid rgba(201,168,76,0.2);
-  padding:32px;
-}
-.rc-bar-wrap{margin:24px 0}
-.rc-bar-label{
-  display:flex;justify-content:space-between;
-  font-size:12px;margin-bottom:6px;gap:8px;
-}
-.rc-bar-key{color:var(--pale)}
-.rc-bar-val{color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:600;white-space:nowrap;}
-.rc-bar-track{height:8px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
-.rc-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold-dk),var(--gold))}
-.rc-total{
-  margin-top:24px;padding:20px;
-  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.35);
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-}
-.rct-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'Barlow Condensed',sans-serif}
-.rct-val{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--gold)}
-.rct-discount{
-  background:rgba(26,122,74,0.15);border:1px solid rgba(26,122,74,0.4);
-  padding:12px 20px;margin-top:12px;
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-}
-.rcd-label{font-size:12px;color:var(--muted)}
-.rcd-val{font-family:'Cormorant Garamond',serif;font-size:26px;color:#5DB88A;white-space:nowrap;}
-
-/* ===== REVIEWS ===== */
-.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.review-card{
-  padding:20px;background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-}
-.review-stars{color:var(--gold);font-size:14px;margin-bottom:8px}
-.review-text{font-size:13px;color:var(--pale);font-style:italic;line-height:1.6;margin-bottom:12px}
-.review-author{font-size:11px;color:var(--muted)}
-.review-platform{font-size:10px;color:var(--gold-dk);letter-spacing:1px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
-
-/* ===== CONTACT ===== */
-#contact{background:var(--navy);padding:80px 40px}
-.contact-inner{
-  border:1px solid rgba(201,168,76,0.4);
-  padding:60px;max-width:800px;margin:0 auto;
-  text-align:center;position:relative;
-}
-.contact-inner::before{
-  content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-  width:80px;height:2px;background:var(--gold);
-}
-.contact-logo{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:24px;font-weight:700;letter-spacing:3px;
-  color:var(--gold);margin-bottom:4px;
-}
-.contact-logo-sub{font-size:11px;letter-spacing:5px;color:var(--muted);margin-bottom:40px}
-.contact-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:32px;color:var(--white);margin-bottom:4px;
-}
-.contact-title{font-size:13px;color:var(--muted);margin-bottom:32px}
-.contact-details{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.cd-item{display:flex;flex-direction:column;gap:4px;align-items:center}
-.cd-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-family:'Barlow Condensed',sans-serif}
-.cd-value{font-size:16px;color:var(--gold);font-weight:500;word-break:break-word}
-.disclaimer{
-  margin-top:60px;padding:20px;
-  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);
-  font-size:10px;color:var(--muted);line-height:1.7;text-align:left;
+/* ── LABEL HEADING MINI ── */
+.mini-heading {
+  font-size: 8.5px;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
-/* ===== NAV ===== */
-#nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(11,24,41,0.95);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(201,168,76,0.15);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0 40px;height:52px;
+/* ── REVPAR BAR CHART ── */
+.revpar-chart { margin-top: 24px; }
+.rc-row { margin-bottom: 12px; }
+.rc-label-row { display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 4px; }
+.rc-label { color: var(--slate-2); }
+.rc-val { color: var(--white); font-weight: 700; }
+.rc-bar-track { height: 12px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
+.rc-bar-fill { height: 100%; border-radius: 2px; }
+
+/* ── EXIT TABLE ── */
+.exit-stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 10.5px;
 }
-.nav-brand{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:14px;letter-spacing:2px;color:var(--gold);font-weight:600;
+.exit-stat-row:last-child { border-bottom: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .scenario-grid { grid-template-columns: repeat(2,1fr); }
 }
-.nav-links{display:flex;gap:28px}
-.nav-links a{
-  font-size:11px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;
-  font-family:'Barlow Condensed',sans-serif;
-  transition:color 0.2s;
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(4,1fr); }
+  .hero { padding: 40px 30px 0; }
+  .section { padding: 48px 30px; }
+  .four-col { grid-template-columns: repeat(2,1fr); }
+  .contact-footer { padding: 30px; }
+  .deal-box { padding: 36px 30px; }
 }
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{
-  background:var(--gold);color:var(--navy);
-  font-size:11px;letter-spacing:2px;padding:7px 18px;
-  font-family:'Barlow Condensed',sans-serif;font-weight:700;
-  text-transform:uppercase;border:none;cursor:pointer;
-  text-decoration:none;
+@media (max-width: 700px) {
+  .hero-inner { flex-direction: column; }
+  .hero-right { text-align: left; order: -1; }
+  .price-strip { flex-wrap: wrap; }
+  .price-strip-item { flex: 1 1 calc(50% - 1px); border-right: none; border-bottom: 1px solid var(--border); }
+  .two-col { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr; }
+  .review-grid { grid-template-columns: 1fr; }
+  .review-grid .review-card:nth-child(n+4) { display: none; }
+}
+@media (max-width: 600px) {
+  .scenario-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .kpi-grid { grid-template-columns: repeat(2,1fr); }
+  .price-strip-item { flex: 1 1 100%; }
+  .swipe-hint { display: block; }
+  .section { padding: 36px 18px; }
 }
 
-/* ===== RESPONSIVE SPACING & LAYOUT REFINEMENTS ===== */
-@media(max-width:768px){
-  .page { padding: 0 20px; }
-  .section { padding: 50px 20px; }
-  
-  .cover-header { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 20px; }
-  .cover-body { padding: 20px 20px; }
-  .cover-title { font-size: 52px; }
-  .cover-subtitle { font-size: 22px; }
-  .cover-facts { flex-direction: column; gap: 20px; margin-bottom: 40px; }
-  .cover-price-box { width: 100%; padding: 20px; }
-  .price-value { font-size: 40px; }
-  .cover-footer { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
-
-  /* Stack grid layouts to 1 column */
-  .overview-grid, .fin-grid, .exit-scenarios, .drivers-grid, .market-cols,
-  .thesis-grid, .reviews-grid, .ba-container { grid-template-columns: 1fr; }
-  
-  /* Restyle custom grids to vertical stack */
-  .roadmap-grid, .buyer-grid, .contact-params-grid { grid-template-columns: 1fr !important; gap: 16px; }
-  .gap-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-  
-  /* Metric Row - 2 columns on mobile is readable */
-  .metrics-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .mc-value { font-size: 26px; }
-
-  /* Repositioning Before/After specific fixes */
-  .ba-panel { padding: 24px 16px; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.3); }
-  .ba-divider { display: none; } /* Hide right-pointing arrow when panels are stacked vertically */
-  
-  .uplift-bar { flex-direction: column; align-items: flex-start; gap: 16px; padding: 16px; }
-  .uplift-bar > div { text-align: left !important; }
-
-  /* Replacement Cost Visuals */
-  .rc-visual { padding: 20px; }
-  .rc-total, .rct-discount { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; }
-  .rct-val { font-size: 32px; }
-
-  /* Review section layout */
-  .review-header-flex { flex-direction: column; align-items: stretch; text-align: left; }
-  .review-header-flex > div:first-child { display: flex; align-items: center; justify-content: center; gap: 16px; }
-
-  /* Contact section */
-  #contact { padding: 50px 20px; }
-  .contact-inner { padding: 40px 20px; }
-  .contact-details { flex-direction: column; gap: 24px; text-align: center; }
-
-  .nav-links { display: none; }
-  .nav-brand { font-size: 13px; }
-}
+/* ── UTILITY ── */
+.text-white { color: var(--white); }
+.text-gold { color: var(--gold); }
+.text-green { color: var(--green); }
+.text-teal { color: var(--teal-2); }
+.text-slate { color: var(--slate); }
+.text-slate-2 { color: var(--slate-2); }
+.fw-700 { font-weight: 700; }
+.mt8 { margin-top: 8px; }
+.mt14 { margin-top: 14px; }
+.mt20 { margin-top: 20px; }
+.mt28 { margin-top: 28px; }
+.fs11 { font-size: 11px; }
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="nav-brand">YOUDEE HOTEL PATONG</div>
-  <div class="nav-links">
-    <a href="#overview">Overview</a>
-    <a href="#repositioning">Repositioning</a>
-    <a href="#financials">Financials</a>
-    <a href="#exit">Exit</a>
-    <a href="#market">Market</a>
-    <a href="#contact">Contact</a>
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Youdee Hotel Patong</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">83 Keys · 6 Storeys · CBD Patong</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Freehold / Chanote Tenure</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Asking Price ฿350,000,000</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">฿4.22M Per Key</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Target IRR 18–24%</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">MOIC 2.1–2.8×</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Replacement Cost ฿790–808M</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">44% Below Replacement</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Rooftop Sky Pool · Restaurant · Massage</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">5-Min Drive to Patong Beach</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Joe Collection +66 80-657-8387</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">✦ Strictly Confidential · For Qualified Investors Only</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Youdee Hotel Patong</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">83 Keys · 6 Storeys · CBD Patong</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Freehold / Chanote Tenure</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Asking Price ฿350,000,000</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">฿4.22M Per Key</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Target IRR 18–24%</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">MOIC 2.1–2.8×</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Replacement Cost ฿790–808M</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">44% Below Replacement</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Rooftop Sky Pool · Restaurant · Massage</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">5-Min Drive to Patong Beach</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Joe Collection +66 80-657-8387</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">✦ Strictly Confidential · For Qualified Investors Only</span><span class="marquee-dot">✦</span>
   </div>
-  <a href="#contact" class="nav-cta">Enquire Now</a>
-</nav>
+</div>
 
-<section id="cover" style="padding-top:52px">
-  <div class="cover-header">
-    <div class="cover-header-left">
-      <div class="confidential-tag">Strictly Confidential</div>
-      <div class="doc-id">Investment Memorandum · Ref: JOE-PHK-2025-001 · May 2026</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left" style="animation: fadeUp 0.65s ease both;">
+      <div class="brand-badge-row">
+        <span class="brand-badge">CBD Patong</span>
+        <span class="brand-badge teal">4-Star Midscale</span>
+        <span class="brand-badge green">Freehold · Chanote</span>
+        <span class="brand-badge">Value-Add Play</span>
+        <span class="brand-badge">Rebrand 2025</span>
+      </div>
+      <h1>Youdee Hotel<br><em>Patong Beach</em></h1>
+      <p class="hero-tagline">Phuket's <strong>Most Visited Sub-Market</strong> · Prime CBD Freehold at 44% Discount to Replacement Cost</p>
+      <div class="confidential-badge">Strictly Confidential · Qualified Investors Only</div>
     </div>
-    <div class="logo-box">
-      JOE COLLECTION
-      <span>HOSPITALITY ADVISORY</span>
-    </div>
-  </div>
-
-  <div class="cover-body">
-    <div class="cover-eyebrow">Acquisition Opportunity · Patong Beach, Phuket, Thailand</div>
-    <div class="cover-title serif">Youdee Hotel<br/><em>Patong</em></div>
-    <div class="cover-subtitle serif">83 Keys · CBD Midscale 4-Star · Freehold Chanote</div>
-    <div class="cover-rule"></div>
-    <div class="cover-facts">
-      <div>
-        <div class="cover-fact-label">Asking Price</div>
-        <div class="cover-fact-value serif">350 MB<span class="cover-fact-unit">THB</span></div>
-      </div>
-      <div>
-        <div class="cover-fact-label">Price per Key</div>
-        <div class="cover-fact-value serif">4.22 MB<span class="cover-fact-unit">THB</span></div>
-      </div>
-      <div>
-        <div class="cover-fact-label">Discount to Replacement</div>
-        <div class="cover-fact-value serif">~57%<span class="cover-fact-unit">Below Cost</span></div>
-      </div>
-      <div>
-        <div class="cover-fact-label">Land Market Price</div>
-        <div class="cover-fact-value serif">365 MB<span class="cover-fact-unit">/ Rai</span></div>
-      </div>
-    </div>
-
-    <div class="cover-price-box">
-      <div class="price-label">Total Acquisition Price</div>
-      <div class="price-value serif">THB 350,000,000</div>
-      <div class="price-sub">Freehold · Chanote Title · 1-0-87 Rai (1,948 Sqm) · 83 Keys · GFA 5,000 Sqm</div>
+    <div class="hero-right" style="animation: fadeUp 0.65s ease 0.2s both;">
+      <div class="joe-logo">Joe Collection<span>Hospitality Brokerage · Thailand</span></div>
     </div>
   </div>
 
-  <div class="cover-footer">
-    <div class="cover-footer-contact">
-      <div class="cfc-name">Monthon Mahakijdumrongnukul · JOE COLLECTION</div>
-      <div class="cfc-detail">+66 80-657-8387 · joecollection.m@gmail.com</div>
+  <div class="price-strip">
+    <div class="price-strip-item d1">
+      <div class="ps-label">Asking Price</div>
+      <div class="ps-value lime">฿350M</div>
+      <div class="ps-sub">THB 350,000,000</div>
     </div>
-    <div class="cover-footer-badges">
-      <div class="badge">4-Star Hotel</div>
-      <div class="badge">Freehold</div>
-      <div class="badge">CBD Patong</div>
-      <div class="badge">Rebrand 2025</div>
+    <div class="price-strip-item d2">
+      <div class="ps-label">Per Key</div>
+      <div class="ps-value gold">฿4.22M</div>
+      <div class="ps-sub">vs ฿9.5–9.7M replacement</div>
+    </div>
+    <div class="price-strip-item d3">
+      <div class="ps-label">Replacement Cost</div>
+      <div class="ps-value">฿790–808M</div>
+      <div class="ps-sub">44% acquisition discount</div>
+    </div>
+    <div class="price-strip-item d1">
+      <div class="ps-label">Current ADR</div>
+      <div class="ps-value teal">฿2,200</div>
+      <div class="ps-sub">70% OCC · ฿1,540 RevPAR</div>
+    </div>
+    <div class="price-strip-item d2">
+      <div class="ps-label">Target ADR</div>
+      <div class="ps-value green">฿3,500</div>
+      <div class="ps-sub">Post-rebrand stabilised Yr 3</div>
+    </div>
+    <div class="price-strip-item d3">
+      <div class="ps-label">Target IRR</div>
+      <div class="ps-value green">18–24%</div>
+      <div class="ps-sub">MOIC 2.1–2.8× on 5-yr exit</div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="overview" class="section section-alt">
-  <div class="page">
-    <div class="s-eyebrow">01 · Executive Summary</div>
-    <div class="s-title serif">Investment at a Glance</div>
-    <div class="s-rule"></div>
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-badge">Live Data</div>
+  <div class="ticker-track-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="t-label">Asking</span><span class="t-val gold">฿350MB</span><span class="t-sub">[฿4.22M/Key]</span></div>
+      <div class="ticker-item"><span class="t-label">ADR</span><span class="t-val">฿2,200</span><span class="t-sub">[→ ฿3,500]</span></div>
+      <div class="ticker-item"><span class="t-label">OCC</span><span class="t-val">70%</span><span class="t-sub">[→ 78%]</span></div>
+      <div class="ticker-item"><span class="t-label">RevPAR</span><span class="t-val">฿1,540</span><span class="t-sub">[→ ฿2,730]</span></div>
+      <div class="ticker-item"><span class="t-label">Target IRR</span><span class="t-val green">18–24%</span></div>
+      <div class="ticker-item"><span class="t-label">MOIC</span><span class="t-val green">2.1–2.8×</span></div>
+      <div class="ticker-item"><span class="t-label">ROIC Stabilised</span><span class="t-val teal">12–18%</span></div>
+      <div class="ticker-item"><span class="t-label">Keys</span><span class="t-val">83</span><span class="t-sub">[6 Storeys]</span></div>
+      <div class="ticker-item"><span class="t-label">GFA</span><span class="t-val">5,000 sqm</span></div>
+      <div class="ticker-item"><span class="t-label">Land</span><span class="t-val">1-0-87 Rai</span><span class="t-sub">[Freehold]</span></div>
+      <div class="ticker-item"><span class="t-label">Replacement</span><span class="t-val gold">฿790–808MB</span></div>
+      <div class="ticker-item"><span class="t-label">GOP Upside</span><span class="t-val green">฿38MB</span><span class="t-sub">[38% Margin]</span></div>
+      <div class="ticker-item"><span class="t-label">NOI Upside</span><span class="t-val green">฿28MB</span></div>
+      <div class="ticker-item"><span class="t-label">Market ADR</span><span class="t-val green">+5% YoY</span></div>
+      <div class="ticker-item"><span class="t-label">Patong OCC</span><span class="t-val teal">72–75%</span><span class="t-sub">[Highest Phuket]</span></div>
+      <div class="ticker-item"><span class="t-label">Airport Pax</span><span class="t-val teal">8.8M</span><span class="t-sub">[2025]</span></div>
+      <div class="ticker-item"><span class="t-label">F&B</span><span class="t-val">1 Restaurant</span><span class="t-sub">[Rooftop Pool · Spa]</span></div>
+      <div class="ticker-item"><span class="t-label">Built</span><span class="t-val">2014</span><span class="t-sub">[Rebrand 2025]</span></div>
+      <div class="ticker-item"><span class="t-label">Mier Jarr → YouDee</span><span class="t-val gold">2025 Transformation</span></div>
+      <div class="ticker-item"><span class="t-label">Exit Horizon</span><span class="t-val gold">Yr 5–7</span><span class="t-sub">[12–16× EBITDA]</span></div>
+      <div class="ticker-item"><span class="t-label">Asking</span><span class="t-val gold">฿350MB</span><span class="t-sub">[฿4.22M/Key]</span></div>
+      <div class="ticker-item"><span class="t-label">ADR</span><span class="t-val">฿2,200</span><span class="t-sub">[→ ฿3,500]</span></div>
+      <div class="ticker-item"><span class="t-label">OCC</span><span class="t-val">70%</span><span class="t-sub">[→ 78%]</span></div>
+      <div class="ticker-item"><span class="t-label">RevPAR</span><span class="t-val">฿1,540</span><span class="t-sub">[→ ฿2,730]</span></div>
+      <div class="ticker-item"><span class="t-label">Target IRR</span><span class="t-val green">18–24%</span></div>
+      <div class="ticker-item"><span class="t-label">MOIC</span><span class="t-val green">2.1–2.8×</span></div>
+      <div class="ticker-item"><span class="t-label">ROIC Stabilised</span><span class="t-val teal">12–18%</span></div>
+      <div class="ticker-item"><span class="t-label">Keys</span><span class="t-val">83</span><span class="t-sub">[6 Storeys]</span></div>
+      <div class="ticker-item"><span class="t-label">GFA</span><span class="t-val">5,000 sqm</span></div>
+      <div class="ticker-item"><span class="t-label">Land</span><span class="t-val">1-0-87 Rai</span><span class="t-sub">[Freehold]</span></div>
+      <div class="ticker-item"><span class="t-label">Replacement</span><span class="t-val gold">฿790–808MB</span></div>
+      <div class="ticker-item"><span class="t-label">GOP Upside</span><span class="t-val green">฿38MB</span><span class="t-sub">[38% Margin]</span></div>
+      <div class="ticker-item"><span class="t-label">NOI Upside</span><span class="t-val green">฿28MB</span></div>
+      <div class="ticker-item"><span class="t-label">Market ADR</span><span class="t-val green">+5% YoY</span></div>
+      <div class="ticker-item"><span class="t-label">Patong OCC</span><span class="t-val teal">72–75%</span><span class="t-sub">[Highest Phuket]</span></div>
+      <div class="ticker-item"><span class="t-label">Airport Pax</span><span class="t-val teal">8.8M</span><span class="t-sub">[2025]</span></div>
+      <div class="ticker-item"><span class="t-label">F&B</span><span class="t-val">1 Restaurant</span><span class="t-sub">[Rooftop Pool · Spa]</span></div>
+      <div class="ticker-item"><span class="t-label">Built</span><span class="t-val">2014</span><span class="t-sub">[Rebrand 2025]</span></div>
+      <div class="ticker-item"><span class="t-label">Mier Jarr → YouDee</span><span class="t-val gold">2025 Transformation</span></div>
+      <div class="ticker-item"><span class="t-label">Exit Horizon</span><span class="t-val gold">Yr 5–7</span><span class="t-sub">[12–16× EBITDA]</span></div>
+    </div>
+  </div>
+  <div class="ticker-fade"></div>
+</div>
 
-    <div class="metrics-row">
-      <div class="metric-card">
-        <div class="mc-label">Asking Price</div>
-        <div class="mc-value serif">350 <span class="mc-unit">MB THB</span></div>
-        <div class="mc-note">≈ USD 9.7M @ 36.1 THB/USD</div>
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title">Property at a Glance</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-cell d1">
+      <div class="kpi-label">Total Keys</div>
+      <div class="kpi-value gold">83</div>
+      <div class="kpi-sub">6 Storeys</div>
+    </div>
+    <div class="kpi-cell d1">
+      <div class="kpi-label">GFA</div>
+      <div class="kpi-value">5,000</div>
+      <div class="kpi-sub">sqm total built area</div>
+    </div>
+    <div class="kpi-cell d2">
+      <div class="kpi-label">Land · Tenure</div>
+      <div class="kpi-value">1-0-87</div>
+      <div class="kpi-sub">Rai · Freehold Chanote</div>
+    </div>
+    <div class="kpi-cell d2">
+      <div class="kpi-label">Current OCC</div>
+      <div class="kpi-value teal">70%</div>
+      <div class="kpi-sub">avg annual occupancy</div>
+    </div>
+    <div class="kpi-cell d3">
+      <div class="kpi-label">Current ADR</div>
+      <div class="kpi-value">฿2,200</div>
+      <div class="kpi-sub">RevPAR ฿1,540</div>
+    </div>
+    <div class="kpi-cell d3">
+      <div class="kpi-label">F&B Outlets</div>
+      <div class="kpi-value">1</div>
+      <div class="kpi-sub">Mier Jarr Kitchen + Bar</div>
+    </div>
+    <div class="kpi-cell d4">
+      <div class="kpi-label">Sub-Market Rank</div>
+      <div class="kpi-value green">#1</div>
+      <div class="kpi-sub">Highest OCC in Phuket</div>
+    </div>
+    <div class="kpi-cell d4">
+      <div class="kpi-label">Opened · Rebranded</div>
+      <div class="kpi-value">2014</div>
+      <div class="kpi-sub">Renovated & rebranded 2025</div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title">Asset Overview &amp; Location</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="fact-chip-grid">
+        <div class="fact-chip"><div class="fact-chip-label">Brand / Name</div><div class="fact-chip-value">Youdee Hotel Patong</div></div>
+        <div class="fact-chip"><div class="fact-chip-label">Former Name</div><div class="fact-chip-value">Mier Jarr Hotel Patong</div></div>
+        <div class="fact-chip"><div class="fact-chip-label">Address</div><div class="fact-chip-value">200 Pee Rd, 224 Ratuthit Rd, Patong, Phuket</div></div>
+        <div class="fact-chip"><div class="fact-chip-label">Built / Renovated</div><div class="fact-chip-value">2014 / 2025</div></div>
+        <div class="fact-chip"><div class="fact-chip-label">GFA</div><div class="fact-chip-value">5,000 sqm · 6 Floors</div></div>
+        <div class="fact-chip"><div class="fact-chip-label">Land Size</div><div class="fact-chip-value">1-0-87 Rai (487 Sq.Wah)</div></div>
+        <div class="fact-chip"><div class="fact-chip-label">Pool</div><div class="fact-chip-value">Rooftop Sky Pool (panoramic views)</div></div>
+        <div class="fact-chip"><div class="fact-chip-label">Spa / Wellness</div><div class="fact-chip-value">Massage Room · In-Room Services</div></div>
       </div>
-      <div class="metric-card">
-        <div class="mc-label">Price Per Key</div>
-        <div class="mc-value serif">4.22 <span class="mc-unit">MB THB</span></div>
-        <div class="mc-note">vs. replacement 9.5–9.7 MB/key</div>
+      <div class="operator-callout">
+        <div class="operator-callout-label">Current Operator / Status</div>
+        <div class="operator-callout-value">Independent — Rebranded 2025 as Youdee Hotel</div>
+        <div style="font-size:10.5px; color:var(--slate-2); margin-top:6px;">Transition from Mier Jarr to Youdee brand presents an immediate brand-conversion and franchise-affiliation opportunity under IHG (Holiday Inn Express), Wyndham (Tryp/La Quinta), or Accor (ibis Styles) flags — all active in Patong CBD.</div>
       </div>
-      <div class="metric-card">
-        <div class="mc-label">Current RevPAR</div>
-        <div class="mc-value serif">1,540 <span class="mc-unit">THB</span></div>
-        <div class="mc-note">ADR 2,200 × 70% OCC</div>
+    </div>
+    <div>
+      <div class="card card-teal">
+        <div class="mini-heading">Location Intelligence</div>
+        <div class="market-stat-row">
+          <span class="msr-label">Patong Beach (main beach)</span>
+          <span class="msr-value">~5 min drive / 8 min walk</span>
+        </div>
+        <div class="market-stat-row">
+          <span class="msr-label">Bangla Road (nightlife hub)</span>
+          <span class="msr-value">~5 min drive</span>
+        </div>
+        <div class="market-stat-row">
+          <span class="msr-label">Jungceylon Shopping Mall</span>
+          <span class="msr-value">Walking distance</span>
+        </div>
+        <div class="market-stat-row">
+          <span class="msr-label">Karon Beach</span>
+          <span class="msr-value">4.0 km south</span>
+        </div>
+        <div class="market-stat-row">
+          <span class="msr-label">Phuket International Airport</span>
+          <span class="msr-value">~35–45 min drive</span>
+        </div>
+        <div class="market-stat-row">
+          <span class="msr-label">Immediate Brand Neighbours</span>
+          <span class="msr-value"><span class="msr-badge badge-teal">Holiday Inn</span> <span class="msr-badge badge-teal">Courtyard Marriott</span></span>
+        </div>
+        <div class="market-stat-row">
+          <span class="msr-label">Additional Comp Set</span>
+          <span class="msr-value"><span class="msr-badge badge-green">Radisson Red</span> <span class="msr-badge badge-teal">Bauman Buri</span></span>
+        </div>
       </div>
-      <div class="metric-card">
-        <div class="mc-label">Target RevPAR</div>
-        <div class="mc-value serif">2,940 <span class="mc-unit">THB</span></div>
-        <div class="mc-note">ADR 3,500 × 84% OCC (post-brand)</div>
+      <div class="sub-market-callout">
+        <strong>Sub-Market Insight · Patong CBD:</strong> Patong records the <strong>highest occupancy of any sub-market in Phuket</strong> despite being the most supply-intensive zone, driven by year-round demand from diverse international traveller segments. RGI, MPI and ARI all currently below 1.0 — indicating significant market share capture potential post-rebranding. (Source: C9 Hotelworks Phuket Market Update 2026)
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">Development &amp; Investment Scenarios</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="scenario-grid">
+
+    <div class="scenario-card d1">
+      <div class="scenario-header">
+        <div class="scenario-name">Scenario A</div>
+        <div style="font-size:13px; font-weight:700; color:var(--white); margin-bottom:5px;">Status Quo</div>
+        <div class="scenario-desc">Hold and operate as independent Youdee Hotel. Implement operational improvements and minor capex. No brand affiliation.</div>
+      </div>
+      <div class="scenario-metrics">
+        <div class="sm-row"><span class="sm-label">ADR Target</span><span class="sm-value">฿2,600</span></div>
+        <div class="sm-row"><span class="sm-label">OCC Target</span><span class="sm-value">72%</span></div>
+        <div class="sm-row"><span class="sm-label">Total Revenue (Yr 3)</span><span class="sm-value">฿65M</span></div>
+        <div class="sm-row"><span class="sm-label">GOP Margin</span><span class="sm-value">30%</span></div>
+        <div class="sm-row"><span class="sm-label">NOI (Yr 3)</span><span class="sm-value">฿14M</span></div>
+        <div class="sm-row"><span class="sm-label">MOIC</span><span class="sm-value gold">1.5–1.8×</span></div>
+        <div class="sm-row"><span class="sm-label">IRR</span><span class="sm-value teal">10–13%</span></div>
+        <div class="sm-row"><span class="sm-label">Payback</span><span class="sm-value">6–7 Yrs</span></div>
+        <div class="sm-row"><span class="sm-label">Risk Level</span><span class="risk-pill risk-low">Low</span></div>
       </div>
     </div>
 
-    <div class="overview-grid">
-      <div class="table-responsive">
-        <table class="info-table">
-          <tr><td>Property Name</td><td class="highlight-val">Youdee Hotel Patong</td></tr>
-          <tr><td>Formerly</td><td>Mier Jarr Hotel</td></tr>
-          <tr><td>Address</td><td>200 Pee Rd, 224 Thanon Ratuthit Songroipi Rd, Patong Beach, Kathu, Phuket 83150</td></tr>
-          <tr><td>Property Type</td><td>CBD Midscale 4-Star, 6 Storey</td></tr>
-          <tr><td>Keys</td><td class="highlight-val">83 Rooms</td></tr>
-          <tr><td>GFA</td><td>5,000 Sqm</td></tr>
-          <tr><td>Land Size</td><td>1-0-87 Rai (487 Sqwah / 1,948 Sqm)</td></tr>
-          <tr><td>Tenure</td><td class="highlight-val">Freehold · Chanote Title</td></tr>
-          <tr><td>Opened</td><td>2014 · Renovated & Rebranded 2025</td></tr>
-          <tr><td>Zoning</td><td>Hotel</td></tr>
+    <div class="scenario-card best d2">
+      <div class="scenario-header">
+        <div class="best-badge">★ Best Scenario</div>
+        <div class="scenario-name">Scenario B</div>
+        <div style="font-size:13px; font-weight:700; color:var(--white); margin-bottom:5px;">Brand Conversion</div>
+        <div class="scenario-desc">Convert to select-service brand (IHG, Wyndham or Accor). Invest ฿25–35M in product alignment, GDS distribution, and loyalty access.</div>
+      </div>
+      <div class="scenario-metrics">
+        <div class="sm-row"><span class="sm-label">ADR Target</span><span class="sm-value td-green">฿3,500</span></div>
+        <div class="sm-row"><span class="sm-label">OCC Target</span><span class="sm-value td-green">78%</span></div>
+        <div class="sm-row"><span class="sm-label">Total Revenue (Yr 3)</span><span class="sm-value">฿100M</span></div>
+        <div class="sm-row"><span class="sm-label">GOP Margin</span><span class="sm-value td-green">38%</span></div>
+        <div class="sm-row"><span class="sm-label">NOI (Yr 3)</span><span class="sm-value td-green">฿28M</span></div>
+        <div class="sm-row"><span class="sm-label">MOIC</span><span class="sm-value gold">2.3–2.8×</span></div>
+        <div class="sm-row"><span class="sm-label">IRR</span><span class="sm-value green">20–24%</span></div>
+        <div class="sm-row"><span class="sm-label">Payback</span><span class="sm-value">4–5 Yrs</span></div>
+        <div class="sm-row"><span class="sm-label">Risk Level</span><span class="risk-pill risk-low">Low–Med</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card d3">
+      <div class="scenario-header">
+        <div class="scenario-name">Scenario C</div>
+        <div style="font-size:13px; font-weight:700; color:var(--white); margin-bottom:5px;">F&B &amp; Lifestyle Upgrade</div>
+        <div class="scenario-desc">Develop rooftop bar/restaurant, wellness concept, and F&B-led revenue strategy. Targets digital nomad, wellness, and long-stay guests.</div>
+      </div>
+      <div class="scenario-metrics">
+        <div class="sm-row"><span class="sm-label">ADR Target</span><span class="sm-value">฿3,200</span></div>
+        <div class="sm-row"><span class="sm-label">OCC Target</span><span class="sm-value">75%</span></div>
+        <div class="sm-row"><span class="sm-label">Total Revenue (Yr 5)</span><span class="sm-value">฿105M</span></div>
+        <div class="sm-row"><span class="sm-label">GOP Margin</span><span class="sm-value">36%</span></div>
+        <div class="sm-row"><span class="sm-label">NOI (Yr 5)</span><span class="sm-value">฿24M</span></div>
+        <div class="sm-row"><span class="sm-label">MOIC</span><span class="sm-value gold">2.0–2.4×</span></div>
+        <div class="sm-row"><span class="sm-label">IRR</span><span class="sm-value teal">16–20%</span></div>
+        <div class="sm-row"><span class="sm-label">Payback</span><span class="sm-value">5–6 Yrs</span></div>
+        <div class="sm-row"><span class="sm-label">Risk Level</span><span class="risk-pill risk-med">Medium</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card d4">
+      <div class="scenario-header">
+        <div class="scenario-name">Scenario D</div>
+        <div style="font-size:13px; font-weight:700; color:var(--white); margin-bottom:5px;">GDV / Strata Exit</div>
+        <div class="scenario-desc">Convert to branded condo-hotel or mixed-use serviced apartment. Sell units off-plan or strata. Land value ฿365M/Rai provides GDV floor.</div>
+      </div>
+      <div class="scenario-metrics">
+        <div class="sm-row"><span class="sm-label">Redevelop Budget</span><span class="sm-value">฿80–120M</span></div>
+        <div class="sm-row"><span class="sm-label">GDV (Sell-Down)</span><span class="sm-value">฿800–950M</span></div>
+        <div class="sm-row"><span class="sm-label">Land Value Floor</span><span class="sm-value td-gold">฿365M/Rai</span></div>
+        <div class="sm-row"><span class="sm-label">Developer Margin</span><span class="sm-value">35–45%</span></div>
+        <div class="sm-row"><span class="sm-label">NOI (Operational)</span><span class="sm-value">N/A (GDV basis)</span></div>
+        <div class="sm-row"><span class="sm-label">MOIC</span><span class="sm-value gold">2.1–2.6×</span></div>
+        <div class="sm-row"><span class="sm-label">IRR</span><span class="sm-value teal">18–22%</span></div>
+        <div class="sm-row"><span class="sm-label">Payback</span><span class="sm-value">3–4 Yrs</span></div>
+        <div class="sm-row"><span class="sm-label">Risk Level</span><span class="risk-pill risk-med">Med–High</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">Financial Model — All Scenarios</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Scenario A · Status Quo</th>
+          <th>Scenario B · Brand Conv. ★</th>
+          <th>Scenario C · F&B Lifestyle</th>
+          <th>Scenario D · GDV / Strata</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-white">Acquisition Price</td><td>฿350M</td><td>฿350M</td><td>฿350M</td><td>฿350M</td></tr>
+        <tr><td class="td-white">CapEx Required</td><td>฿10–15M</td><td class="td-green">฿25–35M</td><td>฿40–55M</td><td>฿80–120M</td></tr>
+        <tr><td class="td-white">Total Investment</td><td>฿360–365M</td><td class="td-green">฿375–385M</td><td>฿390–405M</td><td>฿430–470M</td></tr>
+        <tr><td class="td-white">Target ADR</td><td>฿2,600</td><td class="td-green">฿3,500</td><td>฿3,200</td><td>฿3,000 (pre-exit)</td></tr>
+        <tr><td class="td-white">Target OCC</td><td>72%</td><td class="td-green">78%</td><td>75%</td><td>70% (until strata)</td></tr>
+        <tr><td class="td-white">RevPAR</td><td>฿1,872</td><td class="td-green">฿2,730</td><td>฿2,400</td><td>฿2,100</td></tr>
+        <tr><td class="td-white">Total Revenue (Yr 3)</td><td>฿65M</td><td class="td-green">฿100M</td><td>฿95M</td><td>฿800–950M (GDV)</td></tr>
+        <tr><td class="td-white">GOP Margin</td><td>30%</td><td class="td-green">38%</td><td>36%</td><td>35–45% (dev margin)</td></tr>
+        <tr><td class="td-white">Stabilised NOI</td><td>฿14M</td><td class="td-green">฿28M</td><td>฿24M</td><td>N/A</td></tr>
+        <tr><td class="td-white">Cap Rate (Exit NOI)</td><td>6.5–7.0%</td><td class="td-green">5.5–6.5%</td><td>5.5–7.0%</td><td>N/A</td></tr>
+        <tr><td class="td-white">Exit Value (Yr 5–7)</td><td>฿450–550M</td><td class="td-gold">฿750–950M</td><td>฿650–800M</td><td>฿900–1,100M</td></tr>
+        <tr><td class="td-white">MOIC</td><td>1.5–1.8×</td><td class="td-green">2.3–2.8×</td><td>2.0–2.4×</td><td>2.1–2.6×</td></tr>
+        <tr><td class="td-white">Project IRR</td><td>10–13%</td><td class="td-green">20–24%</td><td>16–20%</td><td>18–22%</td></tr>
+        <tr><td class="td-white">Payback Period</td><td>6–7 Yrs</td><td class="td-green">4–5 Yrs</td><td>5–6 Yrs</td><td>3–4 Yrs</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="td-white">Verdict</td>
+          <td style="color:var(--slate);">Conservative income play — limited upside</td>
+          <td class="td-green">Optimal risk-adjusted return — Recommended</td>
+          <td style="color:var(--teal-2);">Strong niche play — requires lifestyle expertise</td>
+          <td style="color:var(--gold);">Max return via development — higher execution risk</td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="swipe-hint">← Swipe to view all scenarios →</div>
+  </div>
+  <p class="footnote">Revenue projections based on 83 keys, 365-day basis. GOP and NOI estimates per JLL/C9 Hotelworks Thailand hotel benchmark margins for midscale-upscale Phuket assets. GDV scenario based on Patong condo market pricing ฿80,000–120,000 THB/sqm comparable. All figures indicative and subject to due diligence.</p>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title">Competitive Set Analysis</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Keys</th>
+          <th>Brand Tier</th>
+          <th>Est. ADR</th>
+          <th>OCC Est.</th>
+          <th>RevPAR Est.</th>
+          <th>Positioning</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-white fw-700">Youdee Hotel Patong <span class="tier-tag tier-subject" style="margin-left:6px;">Subject</span></td>
+          <td>83</td>
+          <td><span class="tier-tag tier-mid">Midscale 4★</span></td>
+          <td class="td-gold">฿2,200</td>
+          <td>70%</td>
+          <td>฿1,540</td>
+          <td>CBD · Rebranded 2025</td>
+          <td>RGI/MPI &lt;1 — upside available</td>
+        </tr>
+        <tr>
+          <td class="td-white">Holiday Inn Resort Patong</td>
+          <td>296</td>
+          <td><span class="tier-tag tier-upper">Upper-Scale</span></td>
+          <td>฿3,800</td>
+          <td>78%</td>
+          <td>฿2,964</td>
+          <td>Beachfront · IHG Flag</td>
+          <td>Loyalty-driven OCC premium</td>
+        </tr>
+        <tr>
+          <td class="td-white">Courtyard by Marriott Patong</td>
+          <td>445</td>
+          <td><span class="tier-tag tier-upper">Upper-Scale</span></td>
+          <td>฿4,200</td>
+          <td>80%</td>
+          <td>฿3,360</td>
+          <td>Beachfront · Bonvoy</td>
+          <td>Family + pool product premium</td>
+        </tr>
+        <tr>
+          <td class="td-white">Radisson RED Phuket Patong</td>
+          <td>~200</td>
+          <td><span class="tier-tag tier-upper">Upper-Scale</span></td>
+          <td>฿3,500</td>
+          <td>76%</td>
+          <td>฿2,660</td>
+          <td>Lifestyle-Urban · Radisson</td>
+          <td>Design-led, Bangla adj.</td>
+        </tr>
+        <tr>
+          <td class="td-white">Bauman Buri Patong</td>
+          <td>~110</td>
+          <td><span class="tier-tag tier-mid">Upscale Boutique</span></td>
+          <td>฿3,200</td>
+          <td>73%</td>
+          <td>฿2,336</td>
+          <td>Boutique · Boutique Lifestyle</td>
+          <td>Strong TripAdvisor rating</td>
+        </tr>
+        <tr>
+          <td class="td-white">Amari Phuket</td>
+          <td>180</td>
+          <td><span class="tier-tag tier-luxury">Upper-Upscale</span></td>
+          <td>฿5,500</td>
+          <td>74%</td>
+          <td>฿4,070</td>
+          <td>Beachfront · Amari / Onyx</td>
+          <td>Private beach · premium F&B</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="8" class="td-white">
+            <strong>Positioning Insight:</strong> Youdee currently operates at a 42–48% ADR discount vs. flagged upper-scale comp set in the same sub-market. Post brand-conversion to IHG/Wyndham/Accor select-service flag, the ADR gap is expected to compress to 12–18%, delivering ฿1,200–1,300 ADR uplift and materially re-rating RevPAR and exit multiples.
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="swipe-hint">← Swipe to view all columns →</div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <span class="section-title">Market Intelligence</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="mini-heading">Phuket &amp; Patong Market Data — 2025/26</div>
+      <div class="market-stat-row">
+        <span class="msr-label">Phuket Market ADR Growth YoY</span>
+        <span><span class="msr-badge badge-green">+5% YoY</span></span>
+      </div>
+      <div class="market-stat-row">
+        <span class="msr-label">Patong Sub-Market OCC Rank</span>
+        <span><span class="msr-badge badge-gold">#1 in Phuket</span></span>
+      </div>
+      <div class="market-stat-row">
+        <span class="msr-label">Phuket International Arrivals 2025</span>
+        <span><span class="msr-badge badge-teal">8.8M Pax</span></span>
+      </div>
+      <div class="market-stat-row">
+        <span class="msr-label">Thailand Hotel Transactions 2024</span>
+        <span><span class="msr-badge badge-gold">฿22.3B · 15 Deals</span></span>
+      </div>
+      <div class="market-stat-row">
+        <span class="msr-label">Thailand Hotel Inv. Forecast 2025</span>
+        <span><span class="msr-badge badge-teal">฿13B Pipeline</span></span>
+      </div>
+      <div class="market-stat-row">
+        <span class="msr-label">H1 2025 Phuket ADR vs H2 2024</span>
+        <span><span class="msr-badge badge-green">+0.6% improvement</span></span>
+      </div>
+      <div class="market-stat-row">
+        <span class="msr-label">New Supply H2 2025 Phuket</span>
+        <span class="msr-value">1,758 keys (9 hotels)</span>
+      </div>
+      <div class="market-stat-row">
+        <span class="msr-label">APAC Hotel Investment 2024</span>
+        <span class="msr-value">USD 11.2B · 139 Transactions</span>
+      </div>
+    </div>
+    <div>
+      <div class="card card-teal">
+        <div class="mini-heading">Structural Demand Drivers</div>
+        <div style="counter-reset: demand-counter;">
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div style="color:var(--gold);font-size:18px;font-family:'Cormorant Garamond',serif;font-weight:600;flex-shrink:0;line-height:1;">01</div>
+            <div style="font-size:11px;color:var(--slate-2);line-height:1.5;"><strong style="color:var(--white);">Source Market Diversification</strong> — Despite Chinese arrival softness, India, Russia, Europe, South Korea and Israel collectively driving robust alternative demand into Phuket, supporting occupancy resilience.</div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div style="color:var(--gold);font-size:18px;font-family:'Cormorant Garamond',serif;font-weight:600;flex-shrink:0;line-height:1;">02</div>
+            <div style="font-size:11px;color:var(--slate-2);line-height:1.5;"><strong style="color:var(--white);">Airport Infrastructure</strong> — Phuket International Airport handling 8.8M passengers (2025); ongoing terminal expansion and new route additions supporting long-haul connectivity.</div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div style="color:var(--gold);font-size:18px;font-family:'Cormorant Garamond',serif;font-weight:600;flex-shrink:0;line-height:1;">03</div>
+            <div style="font-size:11px;color:var(--slate-2);line-height:1.5;"><strong style="color:var(--white);">Thailand Safe-Haven Narrative</strong> — Ongoing geopolitical tensions globally position Thailand as neutral, safe destination; boosting transit and holiday demand across APAC routing.</div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div style="color:var(--gold);font-size:18px;font-family:'Cormorant Garamond',serif;font-weight:600;flex-shrink:0;line-height:1;">04</div>
+            <div style="font-size:11px;color:var(--slate-2);line-height:1.5;"><strong style="color:var(--white);">Record Institutional Capital</strong> — JLL reports ฿22.3B in Thai hotel transactions in 2024 (15-year record), with Phuket as second-largest market after Bangkok. Hospitality remains a high-priority institutional asset class.</div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;">
+            <div style="color:var(--gold);font-size:18px;font-family:'Cormorant Garamond',serif;font-weight:600;flex-shrink:0;line-height:1;">05</div>
+            <div style="font-size:11px;color:var(--slate-2);line-height:1.5;"><strong style="color:var(--white);">Brand Migration to Midscale</strong> — Marriott, Wyndham, Radisson and Accor all expanding in the midscale/upper-midscale Phuket segment in 2025 — validating the brand-conversion thesis at Youdee's price point and location.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <span class="section-title">Replacement Cost Analysis</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="mini-heading">Cost Build-Up (฿ Millions)</div>
+
+      <div class="cost-bar-wrap">
+        <div class="cost-bar-label"><span class="cost-bar-name">Land (1-0-87 Rai @ ฿300M/Rai)</span><span class="cost-bar-val">฿365M</span></div>
+        <div class="cost-bar-track"><div class="cost-bar-fill fill-land" style="width:45%;"></div></div>
+      </div>
+      <div class="cost-bar-wrap">
+        <div class="cost-bar-label"><span class="cost-bar-name">Construction (฿74–77k/sqm × 5,000 sqm)</span><span class="cost-bar-val">฿370–385M</span></div>
+        <div class="cost-bar-track"><div class="cost-bar-fill fill-construction" style="width:47%;"></div></div>
+      </div>
+      <div class="cost-bar-wrap">
+        <div class="cost-bar-label"><span class="cost-bar-name">FF&OS&E (฿490–525k/key × 83 keys)</span><span class="cost-bar-val">฿40.7–43.6M</span></div>
+        <div class="cost-bar-track"><div class="cost-bar-fill fill-ffose" style="width:23%;"></div></div>
+      </div>
+      <div class="cost-bar-wrap">
+        <div class="cost-bar-label"><span class="cost-bar-name">Soft Costs (฿175k/key × 83 keys)</span><span class="cost-bar-val">฿14.5M</span></div>
+        <div class="cost-bar-track"><div class="cost-bar-fill fill-soft" style="width:12%;"></div></div>
+      </div>
+      <div class="cost-bar-wrap" style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);">
+        <div class="cost-bar-label"><span class="cost-bar-name" style="color:var(--white);font-weight:700;">Total Build Cost (excl. land)</span><span class="cost-bar-val" style="color:var(--white);">฿425–443M</span></div>
+        <div class="cost-bar-track"><div class="cost-bar-fill fill-total" style="width:53%;"></div></div>
+      </div>
+      <div class="cost-bar-wrap">
+        <div class="cost-bar-label"><span class="cost-bar-name" style="color:var(--gold);font-weight:700;">Total Replacement Cost</span><span class="cost-bar-val" style="color:var(--gold);">฿790–808M</span></div>
+        <div class="cost-bar-track"><div class="cost-bar-fill fill-replacement" style="width:100%;"></div></div>
+      </div>
+      <div class="cost-bar-wrap">
+        <div class="cost-bar-label"><span class="cost-bar-name" style="color:var(--lime);font-weight:700;">Asking Price</span><span class="cost-bar-val" style="color:var(--lime);">฿350M</span></div>
+        <div class="cost-bar-track"><div class="cost-bar-fill fill-asking" style="width:44%;"></div></div>
+      </div>
+
+      <div class="green-callout" style="margin-top:20px;">
+        <div class="green-callout-title">✔ Acquisition at 44% Discount to Replacement Cost</div>
+        <div class="green-callout-text">Buyer acquires 83 operational keys + freehold land in the prime CBD Patong sub-market for ฿350M — versus a replacement cost of ฿790–808M. This ฿440–458M discount to replacement represents the foundational margin of safety underwriting this investment.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="mini-heading">Per-Key Pricing Matrix</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Component</th><th>Total (฿M)</th><th>Per Key (฿M)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Land Cost</td><td class="td-white">฿365M</td><td class="td-white">฿4.40M</td></tr>
+            <tr><td>Construction</td><td>฿370–385M</td><td>฿4.46–4.64M</td></tr>
+            <tr><td>FF&OS&E</td><td>฿40.7–43.6M</td><td>฿490–525k</td></tr>
+            <tr><td>Soft Costs</td><td>฿14.5M</td><td>฿175k</td></tr>
+            <tr><td class="td-gold fw-700">Total Replacement</td><td class="td-gold fw-700">฿790–808M</td><td class="td-gold fw-700">฿9.5–9.7M</td></tr>
+            <tr><td class="text-green fw-700">Asking Price</td><td class="td-green fw-700">฿350M</td><td class="td-green fw-700">฿4.22M</td></tr>
+            <tr><td>Implied Discount</td><td class="td-white fw-700">฿440–458M</td><td class="td-white fw-700">55–57%</td></tr>
+          </tbody>
         </table>
       </div>
-      <div class="table-responsive">
-        <table class="info-table">
-          <tr><td>Facilities</td><td>Kitchen Restaurant, Rooftop Sky Pool, Massage Room, Bar/Lounge, Free Parking, Beach Shuttle</td></tr>
-          <tr><td>Current ADR</td><td class="highlight-val">2,200 THB / night</td></tr>
-          <tr><td>Current OCC</td><td class="highlight-val">70%</td></tr>
-          <tr><td>Current RevPAR</td><td>1,540 THB</td></tr>
-          <tr><td>Land Market Value</td><td class="highlight-val">365 MB/Rai</td></tr>
-          <tr><td>Replacement Cost</td><td>790–808 MB THB total</td></tr>
-          <tr><td>Asking Price</td><td class="highlight-val">350 MB THB</td></tr>
-          <tr><td>RGI / MPI / ARI</td><td>&lt; 1.0 — material upside</td></tr>
-          <tr><td>Contact</td><td>Monthon Mahakijdumrongnukul</td></tr>
-          <tr><td>Mobile / Email</td><td>+66 80-657-8387 / joecollection.m@gmail.com</td></tr>
+
+      <div style="margin-top:20px;">
+        <div class="mini-heading">Asking vs Replacement — Scenario Comparison</div>
+        <div class="cost-bar-wrap">
+          <div class="cost-bar-label"><span class="cost-bar-name">Youdee Asking Price</span><span class="cost-bar-val text-lime">฿350M / ฿4.22M/Key</span></div>
+          <div class="cost-bar-track"><div class="cost-bar-fill fill-asking" style="width:44%;"></div></div>
+        </div>
+        <div class="cost-bar-wrap">
+          <div class="cost-bar-label"><span class="cost-bar-name">Replacement Cost (mid)</span><span class="cost-bar-val text-gold">฿799M / ฿9.6M/Key</span></div>
+          <div class="cost-bar-track"><div class="cost-bar-fill fill-replacement" style="width:100%;"></div></div>
+        </div>
+        <div class="cost-bar-wrap">
+          <div class="cost-bar-label"><span class="cost-bar-name">Comparable Branded (est.)</span><span class="cost-bar-val">฿5,500–7,000 ADR</span></div>
+          <div class="cost-bar-track"><div class="cost-bar-fill fill-construction" style="width:70%;"></div></div>
+        </div>
+        <div class="cost-bar-wrap">
+          <div class="cost-bar-label"><span class="cost-bar-name">Patong Land Value Floor</span><span class="cost-bar-val text-gold">฿365M/Rai</span></div>
+          <div class="cost-bar-track"><div class="cost-bar-fill fill-land" style="width:46%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <span class="section-title">Financial Projections &amp; Performance Model</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>ADR (฿)</th>
+          <th>OCC (%)</th>
+          <th>RevPAR (฿)</th>
+          <th>Rooms Rev (฿M)</th>
+          <th>Total Rev (฿M)</th>
+          <th>GOP Margin</th>
+          <th>GOP (฿M)</th>
+          <th>NOI (฿M)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-white fw-700">Current Actual</td>
+          <td>2,200</td>
+          <td>70%</td>
+          <td>1,540</td>
+          <td class="td-white">46.7</td>
+          <td class="td-white">52.0</td>
+          <td>24–26%</td>
+          <td>12.5–13.5</td>
+          <td>8.0–9.0</td>
+        </tr>
+        <tr>
+          <td class="td-gold fw-700">Base Case Yr 3 (Brand Conv.)</td>
+          <td class="td-green">3,500</td>
+          <td class="td-green">78%</td>
+          <td class="td-green">2,730</td>
+          <td class="td-white">82.7</td>
+          <td class="td-white">100.0</td>
+          <td class="td-green">38%</td>
+          <td class="td-green">38.0</td>
+          <td class="td-green">28.0</td>
+        </tr>
+        <tr>
+          <td class="td-white fw-700">Upside Yr 5 (F&B + Brand)</td>
+          <td>4,200</td>
+          <td>80%</td>
+          <td>3,360</td>
+          <td class="td-white">101.8</td>
+          <td class="td-white">125.0</td>
+          <td>42%</td>
+          <td>52.5</td>
+          <td>38.0</td>
+        </tr>
+        <tr style="background:rgba(201,168,76,0.04);">
+          <td class="td-teal fw-700">Market Reference (Patong Branded Midscale)</td>
+          <td class="td-teal">3,200–4,000</td>
+          <td class="td-teal">74–78%</td>
+          <td class="td-teal">2,400–3,100</td>
+          <td class="td-teal">73–94</td>
+          <td class="td-teal">85–115</td>
+          <td class="td-teal">32–40%</td>
+          <td class="td-teal">27–46</td>
+          <td class="td-teal">18–32</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="swipe-hint">← Swipe to view all columns →</div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <div class="mini-heading">IRR Sensitivity Matrix — Exit Year × Exit Multiple (EBITDA)</div>
+    <div class="table-scroll">
+      <table class="irr-table">
+        <thead>
+          <tr>
+            <th>Exit Yr \ EBITDA Multiple</th>
+            <th>8×</th>
+            <th>10×</th>
+            <th>12×</th>
+            <th>14×</th>
+            <th>16×</th>
+            <th>18×</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-white fw-700">Year 3</td>
+            <td class="irr-low">9.2%</td>
+            <td class="irr-med-low">12.8%</td>
+            <td class="irr-med">16.4%</td>
+            <td class="irr-high">19.8%</td>
+            <td class="irr-very-high">23.1%</td>
+            <td class="irr-very-high">26.3%</td>
+          </tr>
+          <tr>
+            <td class="td-white fw-700">Year 4</td>
+            <td class="irr-low">8.5%</td>
+            <td class="irr-med-low">11.9%</td>
+            <td class="irr-med">15.3%</td>
+            <td class="irr-high">18.5%</td>
+            <td class="irr-very-high">21.6%</td>
+            <td class="irr-very-high">24.7%</td>
+          </tr>
+          <tr>
+            <td class="td-white fw-700">Year 5</td>
+            <td class="irr-low">8.1%</td>
+            <td class="irr-med-low">11.2%</td>
+            <td class="irr-med">14.3%</td>
+            <td class="irr-high">17.4%</td>
+            <td class="irr-high">20.2%</td>
+            <td class="irr-very-high">23.0%</td>
+          </tr>
+          <tr>
+            <td class="td-white fw-700">Year 6</td>
+            <td class="irr-low">7.8%</td>
+            <td class="irr-med-low">10.7%</td>
+            <td class="irr-med">13.6%</td>
+            <td class="irr-high">16.4%</td>
+            <td class="irr-high">19.0%</td>
+            <td class="irr-high">21.6%</td>
+          </tr>
+          <tr>
+            <td class="td-white fw-700">Year 7</td>
+            <td class="irr-low">7.5%</td>
+            <td class="irr-med-low">10.2%</td>
+            <td class="irr-med">13.0%</td>
+            <td class="irr-high">15.6%</td>
+            <td class="irr-high">18.1%</td>
+            <td class="irr-high">20.5%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="swipe-hint">← Swipe to view →</div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+      <span style="font-size:9px;color:var(--slate);">■ <span style="color:#E07060;">Below 10%</span> — Suboptimal</span>
+      <span style="font-size:9px;color:var(--slate);">■ <span style="color:var(--gold);">10–14%</span> — Acceptable</span>
+      <span style="font-size:9px;color:var(--slate);">■ <span style="color:var(--teal-2);">14–18%</span> — Target</span>
+      <span style="font-size:9px;color:var(--slate);">■ <span style="color:var(--green);">18–22%</span> — Strong</span>
+      <span style="font-size:9px;color:var(--slate);">■ <span style="color:#5ADB92;">22%+</span> — Exceptional</span>
+    </div>
+  </div>
+
+  <div class="revpar-chart" style="margin-top:36px;">
+    <div class="mini-heading">RevPAR Uplift by Scenario</div>
+    <div class="rc-row">
+      <div class="rc-label-row"><span class="rc-label">Current Actual</span><span class="rc-val">฿1,540</span></div>
+      <div class="rc-bar-track"><div class="rc-bar-fill" style="width:34%;background:linear-gradient(to right,var(--slate),var(--slate-2));"></div></div>
+    </div>
+    <div class="rc-row">
+      <div class="rc-label-row"><span class="rc-label">Status Quo Yr 3 (Scenario A)</span><span class="rc-val">฿1,872</span></div>
+      <div class="rc-bar-track"><div class="rc-bar-fill" style="width:42%;background:linear-gradient(to right,var(--teal),var(--teal-2));"></div></div>
+    </div>
+    <div class="rc-row">
+      <div class="rc-label-row"><span class="rc-label">F&B Lifestyle Yr 5 (Scenario C)</span><span class="rc-val">฿2,400</span></div>
+      <div class="rc-bar-track"><div class="rc-bar-fill" style="width:54%;background:linear-gradient(to right,var(--teal-2),#35B8B5);"></div></div>
+    </div>
+    <div class="rc-row">
+      <div class="rc-label-row"><span class="rc-label">Brand Conversion Yr 3 (Scenario B ★)</span><span class="rc-val text-green">฿2,730</span></div>
+      <div class="rc-bar-track"><div class="rc-bar-fill" style="width:61%;background:linear-gradient(to right,var(--green),#5ADB92);"></div></div>
+    </div>
+    <div class="rc-row">
+      <div class="rc-label-row"><span class="rc-label">Upside Yr 5 (Full Stabilisation)</span><span class="rc-val text-green">฿3,360</span></div>
+      <div class="rc-bar-track"><div class="rc-bar-fill" style="width:75%;background:linear-gradient(to right,var(--gold),var(--gold-bright));"></div></div>
+    </div>
+  </div>
+  <p class="footnote">RevPAR = ADR × OCC. Scenario B base case assumes IHG/Wyndham/Accor franchise agreement, ฿25–35M renovation capex, and 18–24 month brand ramp. Upside Yr 5 assumes F&B expansion, rooftop bar revenue, and full loyalty programme penetration. Sources: C9 Hotelworks 2026; JLL Thailand Hospitality H1 2025; operator benchmarking.</p>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">09</span>
+    <span class="section-title">Exit Strategy Roadmap</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="timeline-wrap">
+        <div class="timeline-line"></div>
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="ts-year">Year 1 — Acquisition</div>
+          <div class="ts-title">Close & Secure</div>
+          <div class="ts-desc">Execute acquisition at ฿350M. Commission technical due diligence, brand feasibility study, and franchise RFP to IHG, Wyndham, and Accor. Appoint interim GM with brand conversion mandate.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="ts-year">Year 1–2 — CapEx & Brand</div>
+          <div class="ts-title">Renovation + Rebrand</div>
+          <div class="ts-desc">Deploy ฿25–35M phased capex: room product upgrade, lobby & F&B transformation, rooftop bar activation, PMS/CRS migration to brand's GDS. Target franchise PIP compliance by Month 18.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="ts-year">Year 2–4 — Ramp</div>
+          <div class="ts-title">Stabilisation Phase</div>
+          <div class="ts-desc">ADR ramp to ฿3,000–3,500 as brand loyalty occupancy builds. GOP margin expansion from 24% → 38%. Establish trailing EBITDA base to underpin exit valuation at 12–16× multiple.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot final"></div>
+          <div class="ts-year">Year 5–7 — Exit Window</div>
+          <div class="ts-title">Exit Options A / B / C</div>
+          <div class="ts-desc">Three exit pathways available simultaneously. Institutional appetite for branded Thai hotel assets at scale is confirmed by JLL's ฿22.3B 2024 transaction volume. Phuket = #2 market nationally.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="mini-heading">Exit Value Scenarios</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Exit Option</th><th>Basis</th><th>Exit Value</th><th>Equity Return</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-white fw-700">Exit A — Trade Sale</td>
+              <td>12–14× EBITDA</td>
+              <td class="td-green">฿750–950M</td>
+              <td class="td-green">2.1–2.8× MOIC</td>
+            </tr>
+            <tr>
+              <td class="td-white fw-700">Exit B — Institutional Block Sale</td>
+              <td>Cap rate 5.5–6.0%</td>
+              <td class="td-gold">฿800–1,000M</td>
+              <td class="td-gold">2.3–2.9× MOIC</td>
+            </tr>
+            <tr>
+              <td class="td-white fw-700">Exit C — Strata / GDV Sale</td>
+              <td>Condo-hotel conversion</td>
+              <td>฿900–1,100M</td>
+              <td>2.6–3.1× MOIC</td>
+            </tr>
+            <tr>
+              <td class="td-white fw-700">Hold (Long-Term Income)</td>
+              <td>NOI ÷ Cap rate</td>
+              <td>฿560–700M NAV</td>
+              <td>12–18% ROIC</td>
+            </tr>
+            <tr>
+              <td class="td-white fw-700">Land Only (Demolish)</td>
+              <td>฿365M/Rai land price</td>
+              <td class="td-teal">฿365M+ floor</td>
+              <td class="td-teal">Capital preservation</td>
+            </tr>
+          </tbody>
         </table>
       </div>
-    </div>
-  </div>
-</section>
 
-<section id="market" class="section">
-  <div class="page">
-    <div class="s-eyebrow">02 · Location & Market Position</div>
-    <div class="s-title serif">Heart of Patong's<br/><em>Premier Hotel Corridor</em></div>
-    <div class="s-rule"></div>
-
-    <div class="market-cols">
-      <div>
-        <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);padding:28px;margin-bottom:24px">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);margin-bottom:16px;text-transform:uppercase">Key Location Highlights</div>
-          <div class="market-stat-row">
-            <span class="msr-key">Distance to Patong Beach</span>
-            <span class="msr-val">5-min drive</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Distance to Bangla Road</span>
-            <span class="msr-val">5-min drive</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Jungceylon Mall</span>
-            <span class="msr-val">15-min walk</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Karon Beach</span>
-            <span class="msr-val">4 km</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Kata Beach</span>
-            <span class="msr-val">8.8 km</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Phuket Airport</span>
-            <span class="msr-val">35–45 min</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Phuket Arrivals 2025</span>
-            <span class="msr-val">8.8M pax</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Phuket OCC (H1 2025)</span>
-            <span class="msr-val">79.5%</span>
-          </div>
-          <div class="market-stat-row">
-            <span class="msr-key">Phuket ADR (H1 2025)</span>
-            <span class="msr-val">5,652 THB</span>
-          </div>
-        </div>
-        <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);padding:24px">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);margin-bottom:4px;text-transform:uppercase">Phuket Market Outlook 2026</div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.7">Full-year 2025 occupancy reached 78–80% with Q4 peak season exceeding 85%. ADR rose +7.8% to 5,652 THB led by upper-upscale branded properties. RevPAR growth in 2026 expected to be volume-driven with strong international demand from Russia, India, China, and Australia. Visa exemptions and improved air connectivity continue to support demand fundamentals.</p>
-        </div>
+      <div class="operator-callout" style="margin-top:16px;">
+        <div class="operator-callout-label">Land Value Upside — Hard Floor Protection</div>
+        <div class="operator-callout-value" style="font-size:12px;">Patong CBD land transacting at ฿365M/Rai. Subject land = 1.087 Rai. Implied land value alone ≈ ฿397M — exceeding the ฿350M asking price. Absolute downside protected by land value.</div>
       </div>
 
-      <div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px">Immediate Competitive Set</div>
-        <div class="comp-set">
-          <div class="comp-item">
-            <div class="comp-dot"></div>
-            <div>
-              <div class="comp-name">Holiday Inn Resort Patong</div>
-              <div style="font-size:11px;color:var(--muted)">IHG Group · Premium Location</div>
-            </div>
-            <div class="comp-tier">Upper Upscale</div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-dot"></div>
-            <div>
-              <div class="comp-name">Courtyard by Marriott</div>
-              <div style="font-size:11px;color:var(--muted)">Marriott International</div>
-            </div>
-            <div class="comp-tier">Upper Midscale</div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-dot"></div>
-            <div>
-              <div class="comp-name">Radisson Red Patong</div>
-              <div style="font-size:11px;color:var(--muted)">Radisson Hotel Group</div>
-            </div>
-            <div class="comp-tier">Upper Upscale</div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-dot"></div>
-            <div>
-              <div class="comp-name">Bauman Buri</div>
-              <div style="font-size:11px;color:var(--muted)">Independent Boutique</div>
-            </div>
-            <div class="comp-tier">Upscale</div>
-          </div>
-          <div class="comp-item" style="opacity:0.6">
-            <div class="comp-dot" style="background:rgba(201,168,76,0.4)"></div>
-            <div>
-              <div class="comp-name" style="color:var(--gold)">Youdee Hotel (Current)</div>
-              <div style="font-size:11px;color:var(--muted)">Independent · ADR 2,200 / OCC 70%</div>
-            </div>
-            <div class="comp-tier" style="color:var(--gold)">Midscale</div>
-          </div>
-          <div class="comp-item" style="border-left:2px solid var(--gold);padding-left:12px">
-            <div class="comp-dot" style="background:var(--gold-lt)"></div>
-            <div>
-              <div class="comp-name" style="color:var(--gold-lt)">Target Post-Reposition</div>
-              <div style="font-size:11px;color:var(--muted)">Soft-Brand / Independent Upscale</div>
-            </div>
-            <div class="comp-tier" style="color:var(--gold-lt)">Upper Midscale</div>
-          </div>
+      <div class="card card-teal" style="margin-top:14px;">
+        <div class="mini-heading">APAC Institutional Appetite</div>
+        <div class="exit-stat-row">
+          <span style="font-size:10px;color:var(--slate-2);">Thailand hotel transactions 2024</span>
+          <span class="td-gold fw-700">฿22.3B / 15 Deals</span>
         </div>
-
-        <div style="margin-top:24px;padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)">
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Barlow Condensed',sans-serif;margin-bottom:12px">RGI / MPI / ARI Gap Analysis</div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.6">Current performance indices (RGI, MPI, ARI) are all below 1.0, indicating the property is underperforming its competitive set across RevPAR, market penetration, and ADR. This represents a structural operational gap — not a demand problem — and is the primary value creation lever available to an incoming investor/operator.</p>
-          <div class="gap-grid">
-            <div style="text-align:center;padding:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15)">
-              <div style="font-size:10px;letter-spacing:2px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">RGI</div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:#E87070">&lt; 1.0</div>
-              <div style="font-size:10px;color:var(--muted)">RevPAR Index</div>
-            </div>
-            <div style="text-align:center;padding:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15)">
-              <div style="font-size:10px;letter-spacing:2px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">MPI</div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:#E87070">&lt; 1.0</div>
-              <div style="font-size:10px;color:var(--muted)">Market Penetration</div>
-            </div>
-            <div style="text-align:center;padding:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15)">
-              <div style="font-size:10px;letter-spacing:2px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">ARI</div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:#E87070">&lt; 1.0</div>
-              <div style="font-size:10px;color:var(--muted)">ADR Index</div>
-            </div>
-          </div>
+        <div class="exit-stat-row">
+          <span style="font-size:10px;color:var(--slate-2);">APAC hotel investment CAGR 2022–24</span>
+          <span class="td-teal fw-700">+15% YoY (2024)</span>
+        </div>
+        <div class="exit-stat-row">
+          <span style="font-size:10px;color:var(--slate-2);">JLL avg. deal size forecast 2025</span>
+          <span style="color:var(--green);font-weight:700;">฿1.8B (+80% vs 10yr avg)</span>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="repositioning" class="section section-alt">
-  <div class="page">
-    <div class="s-eyebrow">03 · Repositioning Strategy</div>
-    <div class="s-title serif">Before & After:<br/><em>Transforming Value</em></div>
-    <div class="s-sub">A strategic rebranding and asset repositioning roadmap to unlock maximum investment returns.</div>
-    <div class="s-rule"></div>
-
-    <div style="position:relative">
-      <div class="ba-container">
-        <div class="ba-panel ba-before">
-          <div class="ba-tag">Current State (2025)</div>
-          <div class="ba-name serif">Youdee Hotel Patong</div>
-          
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">✕</div>
-            <div>
-              <div class="ba-item-label">Brand Position</div>
-              <div class="ba-item-val">Unbranded / Independent Midscale</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">─</div>
-            <div>
-              <div class="ba-item-label">ADR</div>
-              <div class="ba-item-val">THB 2,200 / night</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">─</div>
-            <div>
-              <div class="ba-item-label">Occupancy</div>
-              <div class="ba-item-val">70%</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">─</div>
-            <div>
-              <div class="ba-item-label">RevPAR</div>
-              <div class="ba-item-val">THB 1,540 / night</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">─</div>
-            <div>
-              <div class="ba-item-label">Annual Revenue (83 keys)</div>
-              <div class="ba-item-val">~THB 46.7M</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">─</div>
-            <div>
-              <div class="ba-item-label">GOP Margin</div>
-              <div class="ba-item-val">~35–38%</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">✕</div>
-            <div>
-              <div class="ba-item-label">Distribution</div>
-              <div class="ba-item-val">OTA-dependent, no loyalty program</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">✕</div>
-            <div>
-              <div class="ba-item-label">F&B Offering</div>
-              <div class="ba-item-val">Basic kitchen restaurant only</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">✕</div>
-            <div>
-              <div class="ba-item-label">Rooftop Pool</div>
-              <div class="ba-item-val">Underutilised — not revenue-generating</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">─</div>
-            <div>
-              <div class="ba-item-label">Review Score</div>
-              <div class="ba-item-val">4.0 / 5 — untapped service potential</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">✕</div>
-            <div>
-              <div class="ba-item-label">Implied Cap Rate (Ask)</div>
-              <div class="ba-item-val">~5.1% (below potential)</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon before-icon">✕</div>
-            <div>
-              <div class="ba-item-label">Price Multiple</div>
-              <div class="ba-item-val">~7.5× current NOI — value gap exists</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ba-panel ba-after">
-          <div class="ba-tag">Target State (Year 3)</div>
-          <div class="ba-name serif">Repositioned Upscale Patong</div>
-
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">★</div>
-            <div>
-              <div class="ba-item-label">Brand Position</div>
-              <div class="ba-item-val">Soft Brand / Boutique Upper Midscale 4★</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">ADR</div>
-              <div class="ba-item-val" style="color:var(--gold)">THB 3,500 / night <span style="font-size:11px;color:#5DB88A">+59%</span></div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">Occupancy</div>
-              <div class="ba-item-val" style="color:var(--gold)">84% <span style="font-size:11px;color:#5DB88A">+14 pts</span></div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">RevPAR</div>
-              <div class="ba-item-val" style="color:var(--gold)">THB 2,940 / night <span style="font-size:11px;color:#5DB88A">+91%</span></div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">Annual Revenue (83 keys)</div>
-              <div class="ba-item-val" style="color:var(--gold)">~THB 89.1M <span style="font-size:11px;color:#5DB88A">+91%</span></div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">GOP Margin</div>
-              <div class="ba-item-val" style="color:var(--gold)">~44–48% (branded efficiency)</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">★</div>
-            <div>
-              <div class="ba-item-label">Distribution</div>
-              <div class="ba-item-val">Brand loyalty + direct booking engine</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">★</div>
-            <div>
-              <div class="ba-item-label">F&B Offering</div>
-              <div class="ba-item-val">Signature rooftop bar + poolside dining</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">★</div>
-            <div>
-              <div class="ba-item-label">Rooftop Pool</div>
-              <div class="ba-item-val">Revenue-generating skybar destination</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">Review Score</div>
-              <div class="ba-item-val" style="color:var(--gold)">4.5+ / 5 — service excellence program</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">Stabilised Cap Rate</div>
-              <div class="ba-item-val" style="color:var(--gold)">~12% on cost (post-reposition)</div>
-            </div>
-          </div>
-          <div class="ba-item">
-            <div class="ba-item-icon after-icon">↑</div>
-            <div>
-              <div class="ba-item-label">Exit Value (8× stabilised NOI)</div>
-              <div class="ba-item-val" style="color:var(--gold)">~THB 660–720M</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ba-divider">
-        <div class="ba-arrow">→</div>
-      </div>
-    </div>
-
-    <div class="uplift-bar" style="margin-top:20px">
-      <div>
-        <div class="ub-label">Total RevPAR Uplift Opportunity</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:2px">Based on rebranding, rate optimisation & F&B activation</div>
-      </div>
-      <div style="text-align:right">
-        <div class="ub-value serif">+91% RevPAR / +THB 1,400 ADR Upside</div>
-        <div style="font-size:12px;color:#5DB88A">~2× annual revenue at stabilisation</div>
-      </div>
-    </div>
-
-    <div style="margin-top:48px">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:24px">Implementation Roadmap</div>
-      <div class="roadmap-grid">
-        <div style="border-top:3px solid var(--gold);padding:16px 0">
-          <div style="font-size:10px;letter-spacing:2px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-bottom:8px">Phase 1 · 0–6M</div>
-          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:8px">Brand & Strategy</div>
-          <ul style="font-size:12px;color:var(--muted);line-height:1.8;list-style:none">
-            <li>· Brand partner selection</li>
-            <li>· Asset management plan</li>
-            <li>· Revenue strategy</li>
-            <li>· Channel audit</li>
-          </ul>
-        </div>
-        <div style="border-top:3px solid rgba(201,168,76,0.6);padding:16px 0">
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-bottom:8px">Phase 2 · 6–18M</div>
-          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:8px">Product Upgrade</div>
-          <ul style="font-size:12px;color:var(--muted);line-height:1.8;list-style:none">
-            <li>· Room soft-renovation</li>
-            <li>· Rooftop sky-bar fit-out</li>
-            <li>· F&B concept launch</li>
-            <li>· Spa/wellness upgrade</li>
-          </ul>
-        </div>
-        <div style="border-top:3px solid rgba(201,168,76,0.4);padding:16px 0">
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-bottom:8px">Phase 3 · 18–36M</div>
-          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:8px">Market Penetration</div>
-          <ul style="font-size:12px;color:var(--muted);line-height:1.8;list-style:none">
-            <li>· Brand GDS & OTA push</li>
-            <li>· Loyalty ramp-up</li>
-            <li>· MICE / group sales</li>
-            <li>· Social/influencer PR</li>
-          </ul>
-        </div>
-        <div style="border-top:3px solid rgba(201,168,76,0.25);padding:16px 0">
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-bottom:8px">Phase 4 · 36–60M</div>
-          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:8px">Stabilise & Exit</div>
-          <ul style="font-size:12px;color:var(--muted);line-height:1.8;list-style:none">
-            <li>· NOP stabilisation</li>
-            <li>· Investor reporting</li>
-            <li>· Exit process / sale</li>
-            <li>· Target 2× MOIC</li>
-          </ul>
-        </div>
-      </div>
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">10</span>
+    <span class="section-title">Risk Matrix</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Risk Factor</th>
+            <th>Severity</th>
+            <th>Probability</th>
+            <th>Mitigant</th>
+            <th>Residual Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-white">Brand conversion delay / rejection</td>
+            <td><span class="risk-sev-med">Medium</span></td>
+            <td><span class="tier-tag risk-prob-med">Medium</span></td>
+            <td>Multiple brand RFPs (IHG, Wyndham, Accor); independent operation viable as Plan B</td>
+            <td><span class="risk-sev-low">Low–Medium</span></td>
+          </tr>
+          <tr>
+            <td class="td-white">Phuket tourism demand softness</td>
+            <td><span class="risk-sev-med">Medium</span></td>
+            <td><span class="tier-tag risk-prob-low">Low</span></td>
+            <td>Diversified source markets (India, Russia, Europe); Patong maintains highest OCC in Phuket</td>
+            <td><span class="risk-sev-low">Low</span></td>
+          </tr>
+          <tr>
+            <td class="td-white">ADR compression from new supply</td>
+            <td><span class="risk-sev-med">Medium</span></td>
+            <td><span class="tier-tag risk-prob-med">Medium</span></td>
+            <td>41 projects pipeline through 2030 — mostly upscale/lifestyle (non-comp); brand affiliation insulates pricing</td>
+            <td><span class="risk-sev-low">Low–Medium</span></td>
+          </tr>
+          <tr>
+            <td class="td-white">Construction / renovation overrun</td>
+            <td><span class="risk-sev-med">Medium</span></td>
+            <td><span class="tier-tag risk-prob-med">Medium</span></td>
+            <td>Phased capex; fixed-price contractor agreements; existing structure reduces scope</td>
+            <td><span class="risk-sev-low">Low</span></td>
+          </tr>
+          <tr>
+            <td class="td-white">Thai regulatory / foreign ownership</td>
+            <td><span class="risk-sev-high">High</span></td>
+            <td><span class="tier-tag risk-prob-low">Low</span></td>
+            <td>Freehold Chanote via Thai Co. Ltd or BOI / EEC approved structure; hotel zoning confirmed</td>
+            <td><span class="risk-sev-low">Low</span></td>
+          </tr>
+          <tr>
+            <td class="td-white">FX / THB devaluation risk</td>
+            <td><span class="risk-sev-med">Medium</span></td>
+            <td><span class="tier-tag risk-prob-low">Low</span></td>
+            <td>USD-denominated revenue from international guests provides natural FX hedge; THB stable vs APAC peers</td>
+            <td><span class="risk-sev-low">Low</span></td>
+          </tr>
+          <tr>
+            <td class="td-white">Key man / management dependency</td>
+            <td><span class="risk-sev-med">Medium</span></td>
+            <td><span class="tier-tag risk-prob-med">Medium</span></td>
+            <td>Brand conversion replaces individual GM dependency with brand-standardised systems and training</td>
+            <td><span class="risk-sev-low">Low</span></td>
+          </tr>
+          <tr>
+            <td class="td-white">Exit liquidity / buyer availability</td>
+            <td><span class="risk-sev-med">Medium</span></td>
+            <td><span class="tier-tag risk-prob-low">Low</span></td>
+            <td>Phuket = #2 Thai hotel investment market (JLL); branded asset at exit commands institutional-grade pricing; land value provides absolute floor at ฿397M</td>
+            <td><span class="risk-sev-low">Low</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="swipe-hint">← Swipe to view →</div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="financials" class="section">
-  <div class="page">
-    <div class="s-eyebrow">04 · Financial Model</div>
-    <div class="s-title serif">P&L Projection &<br/><em>Investment Returns</em></div>
-    <div class="s-rule"></div>
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">11</span>
+    <span class="section-title">Guest Sentiment Analysis</span>
+    <div class="section-line"></div>
+  </div>
 
-    <div style="margin-bottom:48px">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Replacement Cost vs. Acquisition Price</div>
-      <div class="rc-visual">
-        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">The property is offered at approximately 44% of its full replacement cost — a structural discount that provides immediate equity creation and downside protection.</div>
-        
-        <div class="rc-bar-wrap">
-          <div class="rc-bar-label"><span class="rc-bar-key">Land Cost (1-0-87 Rai @ 300 MB/Rai)</span><span class="rc-bar-val">365 MB THB</span></div>
-          <div class="rc-bar-track"><div class="rc-bar-fill" style="width:45%"></div></div>
-        </div>
-        <div class="rc-bar-wrap">
-          <div class="rc-bar-label"><span class="rc-bar-key">Construction Cost (5,000 Sqm @ 75k THB/Sqm)</span><span class="rc-bar-val">375 MB THB</span></div>
-          <div class="rc-bar-track"><div class="rc-bar-fill" style="width:46%"></div></div>
-        </div>
-        <div class="rc-bar-wrap">
-          <div class="rc-bar-label"><span class="rc-bar-key">FF&amp;E / OS&amp;E (83 Keys @ 507k THB/Key)</span><span class="rc-bar-val">42 MB THB</span></div>
-          <div class="rc-bar-track"><div class="rc-bar-fill" style="width:5%"></div></div>
-        </div>
-        <div class="rc-bar-wrap">
-          <div class="rc-bar-label"><span class="rc-bar-key">Soft Costs (83 Keys @ 175k THB/Key)</span><span class="rc-bar-val">14.5 MB THB</span></div>
-          <div class="rc-bar-track"><div class="rc-bar-fill" style="width:2%"></div></div>
-        </div>
-
-        <div class="rc-total">
-          <div>
-            <div class="rct-label">Total Replacement Cost</div>
-            <div style="font-size:12px;color:var(--muted)">83 Keys · 5,000 Sqm GFA · Chanote</div>
-          </div>
-          <div class="rct-val serif">790–808 MB THB</div>
-        </div>
-        <div class="rct-discount">
-          <div>
-            <div class="rcd-label">Acquisition Price Discount to Replacement Cost</div>
-            <div style="font-size:12px;color:var(--muted)">Asking 350 MB vs. Replacement 799 MB — immediate equity of ~449 MB THB</div>
-          </div>
-          <div class="rcd-val serif">-56% Discount</div>
-        </div>
-      </div>
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-quote">"Probably one of the best and most affordable hotels in Patong Beach. The rooftop pool overlooking the sunset and Patong Beach offers a panoramic view of the entire area. Rooms are quite large and spacious and for the price, totally worth the visit."</div>
+      <div class="review-source">Trip.com · Verified Guest</div>
+      <div class="review-date">2024</div>
     </div>
-
-    <div class="fin-grid">
-      <div>
-        <div class="fin-table-wrap">
-          <div class="fin-section-title">5-Year P&L Projection (THB '000)</div>
-          <div class="table-responsive" style="margin-bottom:0">
-            <table class="fin-table">
-              <thead>
-                <tr>
-                  <th>Line Item</th>
-                  <th class="num">Y1</th>
-                  <th class="num">Y2</th>
-                  <th class="num">Y3</th>
-                  <th class="num">Y5</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td colspan="5" style="padding:6px 14px;background:rgba(201,168,76,0.04);font-size:10px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase">Operating Assumptions</td></tr>
-                <tr><td>ADR (THB)</td><td class="num">2,400</td><td class="num">2,850</td><td class="num">3,200</td><td class="num">3,600</td></tr>
-                <tr><td>Occupancy (%)</td><td class="num">72%</td><td class="num">78%</td><td class="num">83%</td><td class="num">85%</td></tr>
-                <tr><td>RevPAR (THB)</td><td class="num">1,728</td><td class="num">2,223</td><td class="num">2,656</td><td class="num">3,060</td></tr>
-
-                <tr><td colspan="5" style="padding:6px 14px;background:rgba(201,168,76,0.04);font-size:10px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase">Revenue</td></tr>
-                <tr><td>Room Revenue</td><td class="num">52,381</td><td class="num">67,389</td><td class="num">80,507</td><td class="num">92,786</td></tr>
-                <tr class="sub-row"><td>F&B Revenue</td><td class="num">6,000</td><td class="num">9,500</td><td class="num">13,200</td><td class="num">16,000</td></tr>
-                <tr class="sub-row"><td>Other (spa, transport)</td><td class="num">1,200</td><td class="num">2,000</td><td class="num">2,800</td><td class="num">3,500</td></tr>
-                <tr class="total-row"><td>Total Revenue</td><td class="num positive">59,581</td><td class="num positive">78,889</td><td class="num positive">96,507</td><td class="num positive">112,286</td></tr>
-
-                <tr><td colspan="5" style="padding:6px 14px;background:rgba(201,168,76,0.04);font-size:10px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase">Expenses</td></tr>
-                <tr class="sub-row"><td>Dept. Expenses (45%)</td><td class="num">26,811</td><td class="num">34,234</td><td class="num">40,131</td><td class="num">45,037</td></tr>
-                <tr class="sub-row"><td>Undist. Expenses (20%)</td><td class="num">11,916</td><td class="num">15,778</td><td class="num">19,301</td><td class="num">22,457</td></tr>
-                <tr class="sub-row"><td>Mgmt Fee (3%)</td><td class="num">1,787</td><td class="num">2,367</td><td class="num">2,895</td><td class="num">3,369</td></tr>
-
-                <tr class="total-row"><td>GOP</td><td class="num positive">19,067</td><td class="num positive">26,510</td><td class="num positive">34,180</td><td class="num positive">41,423</td></tr>
-                <tr class="sub-row"><td>GOP Margin</td><td class="num">32%</td><td class="num">34%</td><td class="num">35%</td><td class="num">37%</td></tr>
-
-                <tr class="sub-row"><td>Reserve for Replacement (4%)</td><td class="num">2,383</td><td class="num">3,156</td><td class="num">3,860</td><td class="num">4,491</td></tr>
-                <tr class="sub-row"><td>Property Tax / Insurance</td><td class="num">1,500</td><td class="num">1,550</td><td class="num">1,600</td><td class="num">1,700</td></tr>
-
-                <tr class="total-row"><td>Net Operating Income</td><td class="num positive">15,184</td><td class="num positive">21,804</td><td class="num positive">28,720</td><td class="num positive">35,232</td></tr>
-                <tr class="sub-row"><td>NOI Margin</td><td class="num">25%</td><td class="num">28%</td><td class="num">30%</td><td class="num">31%</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="fin-table-wrap" style="margin-bottom:20px">
-          <div class="fin-section-title">Acquisition Cost Breakdown (THB '000)</div>
-          <div class="table-responsive" style="margin-bottom:0">
-            <table class="fin-table">
-              <tbody>
-                <tr><td>Acquisition Price</td><td class="num">350,000</td></tr>
-                <tr class="sub-row"><td>Transfer Duty (2%)</td><td class="num">7,000</td></tr>
-                <tr class="sub-row"><td>Specific Business Tax (3.3%)</td><td class="num">11,550</td></tr>
-                <tr class="sub-row"><td>Stamp Duty (0.5%)</td><td class="num">1,750</td></tr>
-                <tr class="sub-row"><td>Legal / Due Diligence</td><td class="num">1,500</td></tr>
-                <tr class="sub-row"><td>Working Capital (3M)</td><td class="num">6,000</td></tr>
-                <tr class="sub-row"><td>Soft Renovation Budget</td><td class="num">25,000</td></tr>
-                <tr class="total-row"><td>All-In Investment</td><td class="num positive">402,800</td></tr>
-                <tr><td>All-In Per Key</td><td class="num">4,854</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="fin-table-wrap">
-          <div class="fin-section-title">Returns Summary</div>
-          <div class="table-responsive" style="margin-bottom:0">
-            <table class="fin-table">
-              <tbody>
-                <tr><td>Y1 Cash-on-Cash Yield</td><td class="num positive">3.8%</td></tr>
-                <tr><td>Y3 Cash-on-Cash Yield</td><td class="num positive">7.1%</td></tr>
-                <tr><td>Y5 Cash-on-Cash Yield</td><td class="num positive">8.7%</td></tr>
-                <tr><td>Y3 NOI (Stabilised)</td><td class="num positive">28,720 K</td></tr>
-                <tr><td>Exit Cap Rate (8×–10×NOI)</td><td class="num positive">8.0–8.5%</td></tr>
-                <tr class="total-row"><td>Y5 Exit Value (9× NOI)</td><td class="num positive">~317,000 K</td></tr>
-                <tr><td>Land Value Only (365 MB/Rai)</td><td class="num positive">≥ 365,000 K</td></tr>
-                <tr class="total-row"><td>Estimated Gross Proceeds</td><td class="num positive">550–720,000 K</td></tr>
-                <tr><td>Estimated Gross IRR (5Y)</td><td class="num positive">18–26% p.a.</td></tr>
-                <tr class="total-row"><td>Estimated MOIC (5Y)</td><td class="num positive">1.8× – 2.4×</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div style="margin-top:16px;padding:16px;background:rgba(26,122,74,0.1);border:1px solid rgba(26,122,74,0.3)">
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#5DB88A;font-family:'Barlow Condensed',sans-serif;margin-bottom:8px">Land Floor Value — Downside Protection</div>
-          <p style="font-size:12px;color:var(--muted);line-height:1.6">At market land values of 365 MB/Rai and a land holding of 1-0-87 Rai, the land alone supports a floor value of approximately <strong style="color:var(--white)">THB 365–420 MB</strong> — marginally above the asking price. This provides a hard-asset safety net where the hotel enterprise value is essentially acquired free of charge.</p>
-        </div>
-      </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-quote">"Great stay. Close to Patong Beach, super friendly staff — especially Eye who was very helpful to us. Room was spacious and clean. On top of that the rooftop pool was amazing. Thank you."</div>
+      <div class="review-source">Trip.com · Verified Guest</div>
+      <div class="review-date">2024</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-quote">"The location is very nice — near everything, literally. Facilities are very good and the staff are very cooperative. When I return to Phuket I will always choose YouDee hotel."</div>
+      <div class="review-source">Booking.com · Verified Guest</div>
+      <div class="review-date">Late 2024</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-quote">"We really liked this hotel. Main reason being the best view and sunset we have ever seen from an infinity rooftop pool. Staff are very friendly. Location is very good. Overall a fantastic stay."</div>
+      <div class="review-source">Trip.com · Verified Guest</div>
+      <div class="review-date">2024</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-quote">"The hotel is conveniently located just a short stroll from the bustling beach and vibrant centre of Patong, making it perfect for both relaxation and adventure."</div>
+      <div class="review-source">Luxury-Hotels.com · Guest</div>
+      <div class="review-date">May 2024</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★☆☆</div>
+      <div class="review-quote">"Someone designed a wonderful rooftop pool and then ran out of money to properly design the rest of the hotel." — A candid but investment-relevant critique: confirms rooftop asset quality and signals clear renovation upside throughout the property.</div>
+      <div class="review-source">Hotels.com · Verified Guest</div>
+      <div class="review-date">Nov 2024</div>
     </div>
   </div>
-</section>
 
-<section id="exit" class="section section-alt">
-  <div class="page">
-    <div class="s-eyebrow">05 · Exit Strategy</div>
-    <div class="s-title serif">Value Creation &<br/><em>Exit Scenarios</em></div>
-    <div class="s-rule"></div>
-
-    <div class="exit-scenarios">
-      <div class="exit-card">
-        <div class="exit-card-header">
-          <div class="exit-card-tag">Conservative</div>
-          <div class="exit-card-name serif">Stabilise & Hold</div>
-        </div>
-        <div class="exit-card-body">
-          <div class="ec-row"><span class="ec-key">Exit Horizon</span><span class="ec-val">3–4 Years</span></div>
-          <div class="ec-row"><span class="ec-key">Exit ADR</span><span class="ec-val">THB 3,000</span></div>
-          <div class="ec-row"><span class="ec-key">Exit OCC</span><span class="ec-val">78%</span></div>
-          <div class="ec-row"><span class="ec-key">Exit NOI</span><span class="ec-val">~THB 23M</span></div>
-          <div class="ec-row"><span class="ec-key">Exit Cap Rate</span><span class="ec-val">8.5%</span></div>
-          <div class="ec-row"><span class="ec-key">Estimated Value</span><span class="ec-val">THB 490–540M</span></div>
-          <div class="ec-row"><span class="ec-key">Gross IRR</span><span class="ec-val">14–17%</span></div>
-          <div class="ec-moic">
-            <span class="ec-moic-label">Est. MOIC</span>
-            <span class="ec-moic-val serif">1.6×</span>
-          </div>
-        </div>
+  <div class="two-col">
+    <div>
+      <div class="mini-heading">Sentiment Scoring</div>
+      <div class="sentiment-bar-wrap">
+        <div class="sb-header"><span class="sb-label">Location</span><span class="sb-score">9.2 / 10</span></div>
+        <div class="sb-track"><div class="sb-fill" style="width:92%;"></div></div>
       </div>
-
-      <div class="exit-card featured" style="border:1px solid rgba(201,168,76,0.5)">
-        <div class="exit-card-header">
-          <div class="exit-card-tag" style="color:var(--gold-lt)">★ Base Case</div>
-          <div class="exit-card-name serif" style="color:var(--gold-lt)">Rebrand & Exit</div>
-        </div>
-        <div class="exit-card-body">
-          <div class="ec-row"><span class="ec-key">Exit Horizon</span><span class="ec-val" style="color:var(--gold)">4–5 Years</span></div>
-          <div class="ec-row"><span class="ec-key">Exit ADR</span><span class="ec-val" style="color:var(--gold)">THB 3,500</span></div>
-          <div class="ec-row"><span class="ec-key">Exit OCC</span><span class="ec-val" style="color:var(--gold)">83%</span></div>
-          <div class="ec-row"><span class="ec-key">Exit NOI</span><span class="ec-val" style="color:var(--gold)">~THB 32M</span></div>
-          <div class="ec-row"><span class="ec-key">Exit Cap Rate</span><span class="ec-val" style="color:var(--gold)">8.0%</span></div>
-          <div class="ec-row"><span class="ec-key">Estimated Value</span><span class="ec-val" style="color:var(--gold)">THB 580–660M</span></div>
-          <div class="ec-row"><span class="ec-key">Gross IRR</span><span class="ec-val" style="color:var(--gold)">19–23%</span></div>
-          <div class="ec-moic">
-            <span class="ec-moic-label">Est. MOIC</span>
-            <span class="ec-moic-val featured serif">2.0×</span>
-          </div>
-        </div>
+      <div class="sentiment-bar-wrap">
+        <div class="sb-header"><span class="sb-label">Staff &amp; Service</span><span class="sb-score">8.5 / 10</span></div>
+        <div class="sb-track"><div class="sb-fill" style="width:85%;"></div></div>
       </div>
-
-      <div class="exit-card">
-        <div class="exit-card-header">
-          <div class="exit-card-tag">Upside</div>
-          <div class="exit-card-name serif">Brand & Trade Sale</div>
-        </div>
-        <div class="exit-card-body">
-          <div class="ec-row"><span class="ec-key">Exit Horizon</span><span class="ec-val">5–6 Years</span></div>
-          <div class="ec-row"><span class="ec-key">Exit ADR</span><span class="ec-val">THB 4,200+</span></div>
-          <div class="ec-row"><span class="ec-key">Exit OCC</span><span class="ec-val">87%</span></div>
-          <div class="ec-row"><span class="ec-key">Exit NOI</span><span class="ec-val">~THB 42M</span></div>
-          <div class="ec-row"><span class="ec-key">Exit Cap Rate</span><span class="ec-val">7.0%</span></div>
-          <div class="ec-row"><span class="ec-key">Estimated Value</span><span class="ec-val">THB 680–760M</span></div>
-          <div class="ec-row"><span class="ec-key">Gross IRR</span><span class="ec-val">24–28%</span></div>
-          <div class="ec-moic">
-            <span class="ec-moic-label">Est. MOIC</span>
-            <span class="ec-moic-val serif">2.4×</span>
-          </div>
-        </div>
+      <div class="sentiment-bar-wrap">
+        <div class="sb-header"><span class="sb-label">Rooftop Pool / Signature Asset</span><span class="sb-score">9.4 / 10</span></div>
+        <div class="sb-track"><div class="sb-fill" style="width:94%;background:linear-gradient(to right,var(--green),#5ADB92);"></div></div>
+      </div>
+      <div class="sentiment-bar-wrap">
+        <div class="sb-header"><span class="sb-label">Facilities (Rooms, F&B)</span><span class="sb-score">5.8 / 10</span></div>
+        <div class="sb-track"><div class="sb-fill" style="width:58%;background:linear-gradient(to right,var(--gold),var(--gold-bright));"></div></div>
+      </div>
+      <div class="sentiment-bar-wrap">
+        <div class="sb-header"><span class="sb-label">Value for Money</span><span class="sb-score">7.9 / 10</span></div>
+        <div class="sb-track"><div class="sb-fill" style="width:79%;"></div></div>
+      </div>
+      <div class="sentiment-bar-wrap">
+        <div class="sb-header"><span class="sb-label">Renovation Mentions (Positive)</span><span class="sb-score">High Intent</span></div>
+        <div class="sb-track"><div class="sb-fill" style="width:85%;background:linear-gradient(to right,var(--teal),var(--teal-2));"></div></div>
       </div>
     </div>
-
-    <div class="buyer-grid">
-      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)">
-        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Barlow Condensed',sans-serif;margin-bottom:8px">Institutional Buyer</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6">REIT, PE fund, or hotel holding company seeking stabilised mid-scale Phuket asset with branded cash flows.</div>
-      </div>
-      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)">
-        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Barlow Condensed',sans-serif;margin-bottom:8px">Strategic Operator</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6">Regional hotel group expanding Phuket footprint, acquiring both asset and operating business as a platform.</div>
-      </div>
-      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)">
-        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Barlow Condensed',sans-serif;margin-bottom:8px">Brand Acquisition</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6">International brand seeking owned asset in core Patong CBD — rare freehold opportunity in prime branded corridor.</div>
-      </div>
-      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)">
-        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Barlow Condensed',sans-serif;margin-bottom:8px">Land Redevelopment</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6">Freehold chanote land (1,948 Sqm) in hotel zone. Land value alone supports asking price — rare safety floor.</div>
-      </div>
+    <div class="card card-green">
+      <div class="mini-heading">Investment Thesis Alignment from Guest Data</div>
+      <p style="font-size:11.5px;color:var(--slate-2);line-height:1.75;margin-bottom:12px;">Guest reviews consistently validate the three pillars of this investment thesis. <strong style="color:var(--white);">Location scores 9.2/10</strong> — the highest rated attribute — confirming the primacy of the CBD Patong address that underpins residual land value and future brand-affiliated ADR premiums.</p>
+      <p style="font-size:11.5px;color:var(--slate-2);line-height:1.75;margin-bottom:12px;">The <strong style="color:var(--white);">rooftop pool scores 9.4/10</strong> and is universally cited as the standout differentiator — a genuine competitive moat and brand conversion anchor. This is a rare, capital-intensive amenity already in place.</p>
+      <p style="font-size:11.5px;color:var(--slate-2);line-height:1.75;">Room and F&B quality scores averaging <strong style="color:var(--gold);">5.8/10</strong> are the clear renovation gap — representing exactly the CapEx opportunity a new owner captures. Guests explicitly identify what ฿25–35M of targeted renovation can fix. Post-brand conversion with product upgrade, yield recovery to market ADR of ฿3,200–3,500 is conservative, not aspirational.</p>
     </div>
   </div>
-</section>
+</div>
 
-<section class="section">
-  <div class="page">
-    <div class="s-eyebrow">06 · Economic Moat & Value Drivers</div>
-    <div class="s-title serif">Why This Asset,<br/><em>Why Now</em></div>
-    <div class="s-rule"></div>
-
-    <div class="drivers-grid">
-      <div class="driver-card">
-        <div class="driver-number serif">01</div>
-        <div class="driver-title">Prime CBD Location</div>
-        <div class="driver-text">Situated in the heart of Patong's primary hotel corridor, surrounded by Holiday Inn, Courtyard by Marriott, Radisson Red, and Bauman Buri. Location is irreplaceable — no comparable vacant sites exist at this price point in the CBD.</div>
-        <div class="driver-metric serif">1-0-87 Rai Freehold · Chanote</div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-number serif">02</div>
-        <div class="driver-title">Deep Discount to Replacement</div>
-        <div class="driver-text">Acquisition at THB 350M versus total replacement cost of THB 790–808M represents a 56% structural discount. Even in a distressed liquidation scenario, land value alone (~THB 365–420M) covers the full purchase price.</div>
-        <div class="driver-metric serif">~56% Below Replacement Cost</div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-number serif">03</div>
-        <div class="driver-title">RGI / MPI / ARI Below 1.0</div>
-        <div class="driver-text">All three STAR performance indices underperform the competitive set — indicating a structural operational gap, not a demand problem. A disciplined revenue management and brand strategy can close this gap quickly, driving outsized NOI growth relative to peers.</div>
-        <div class="driver-metric serif">Systematic Underperformance = Value</div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-number serif">04</div>
-        <div class="driver-title">Rooftop Skypool Activation</div>
-        <div class="driver-text">The hotel's rooftop infinity pool with panoramic Patong Bay views is a signature asset currently generating zero direct revenue. Conversion to a premium skybar and dining destination can add THB 8–12M in annual ancillary revenue at minimal CapEx.</div>
-        <div class="driver-metric serif">+THB 8–12M / Year Potential</div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-number serif">05</div>
-        <div class="driver-title">Phuket Market Tailwinds</div>
-        <div class="driver-text">Phuket welcomed 8.8M passenger arrivals in 2025. Phuket luxury/upscale ADR reached THB 7,005 in H2 2025. Visa exemptions for Russia, India, China continue. Annual full-year occupancy forecast 78–80% with Q4 exceeding 85%.</div>
-        <div class="driver-metric serif">8.8M Arrivals · ADR +7.8% YoY</div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-number serif">06</div>
-        <div class="driver-title">Rebranding / Soft Brand Optionality</div>
-        <div class="driver-text">The property's 83-key scale, 6-storey building, rooftop pool, and prime location profile are ideal for soft-brand affiliation with groups like IHG, Marriott Tribute, or Accor MGallery. Brand uplift to ADR typically delivers 25–40% rate premium over unbranded comp set.</div>
-        <div class="driver-metric serif">25–40% Brand ADR Premium</div>
-      </div>
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">12</span>
+    <span class="section-title">Why This Asset</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="deal-box">
+    <div class="deal-headline">A Rare Freehold Foothold in Phuket's Highest-Demand Sub-Market,<br>Priced at 44 Cents on the Dollar</div>
+    <div class="deal-price">฿ 350,000,000</div>
+    <div class="deal-price-sub">Thai Baht · Freehold Chanote · 83 Keys · CBD Patong · Open to Offers</div>
+    <div class="deal-divider"></div>
+    <div class="deal-thesis">
+      <p>Youdee Hotel Patong is an exceptional value-add acquisition opportunity in one of Southeast Asia's most durable leisure demand markets. The asset is priced at ฿350M — a 44% discount to replacement cost of ฿790–808M and below the market value of the land alone at current Patong CBD pricing of ฿365M/Rai. This fundamental undervaluation creates a structural margin of safety rarely available in Phuket's increasingly institutional hotel market.</p>
+      <p>The investment is a brand-conversion play with immediate, executable upside. The property has completed its 2025 renovation and rebranding from Mier Jarr to Youdee — the product upgrade cycle has begun. A franchise agreement with IHG (Holiday Inn Express), Wyndham (Tryp), or Accor (ibis Styles) would immediately unlock GDS distribution, loyalty occupancy premiums, and the ADR re-rating from ฿2,200 to ฿3,200–3,500 — directly comparable to the Holiday Inn and Courtyard Marriott properties adjacent to this site. At stabilised NOI of ฿28M and an institutional exit cap rate of 5.5–6.5%, the implied exit value ranges ฿750–950M on a Yr 3 horizon — delivering 2.3–2.8× MOIC and 20–24% IRR on Scenario B.</p>
+      <p>Guest reviews confirm the asset's two strongest attributes — location (9.2/10) and rooftop pool (9.4/10) — are genuine competitive moats already in place. Patong records the highest occupancy of any sub-market in Phuket (C9 Hotelworks 2026), and all three distribution indices (RGI, MPI, ARI) sit below 1.0, meaning a brand-affiliated operator would immediately capture disproportionate market share in a market with secular demand tailwinds from diversifying source markets, airport expansion, and institutional capital deployment into Thai hospitality.</p>
+    </div>
+    <div class="pill-grid">
+      <span class="pill">Freehold · Chanote</span>
+      <span class="pill">44% Below Replacement</span>
+      <span class="pill">CBD Patong · Prime Address</span>
+      <span class="pill">Rooftop Sky Pool</span>
+      <span class="pill">Brand Conversion Ready</span>
+      <span class="pill">IRR 20–24%</span>
+      <span class="pill">Land Value Floor ฿397M</span>
+      <span class="pill">IHG / Wyndham / Accor Compatible</span>
+      <span class="pill">JLL: Phuket #2 Inv. Market</span>
+      <span class="pill">RGI &lt; 1.0 — Upside Available</span>
     </div>
   </div>
-</section>
+</div>
 
-<section class="section section-alt">
-  <div class="page">
-    <div class="s-eyebrow">07 · Guest Reviews & Reputation</div>
-    <div class="s-title serif">Current Guest Sentiment</div>
-    <div class="s-sub">1,600+ reviews across booking platforms. Strong location and rooftop praise confirm asset quality. Service upside is an investable opportunity.</div>
-    <div class="s-rule"></div>
-
-    <div class="review-header-flex">
-      <div style="text-align:center">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:72px;color:var(--gold);line-height:1">4.0</div>
-        <div style="font-size:12px;color:var(--muted)">/ 5 Overall</div>
-        <div style="color:var(--gold);font-size:18px;margin-top:4px">★★★★☆</div>
-      </div>
-      <div style="flex:1">
-        <div style="display:grid;gap:8px">
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px">
-            <span style="color:var(--muted);width:80px">Location</span>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden"><div style="width:90%;height:100%;background:var(--gold)"></div></div>
-            <span style="color:var(--gold);min-width:28px">4.5</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px">
-            <span style="color:var(--muted);width:80px">Pool / View</span>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden"><div style="width:88%;height:100%;background:var(--gold)"></div></div>
-            <span style="color:var(--gold);min-width:28px">4.4</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px">
-            <span style="color:var(--muted);width:80px">Staff</span>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden"><div style="width:84%;height:100%;background:var(--gold)"></div></div>
-            <span style="color:var(--gold);min-width:28px">4.2</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px">
-            <span style="color:var(--muted);width:80px">Cleanliness</span>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden"><div style="width:70%;height:100%;background:var(--gold)"></div></div>
-            <span style="color:var(--gold);min-width:28px">3.5</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:12px">
-            <span style="color:var(--muted);width:80px">Value</span>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden"><div style="width:80%;height:100%;background:var(--gold)"></div></div>
-            <span style="color:var(--gold);min-width:28px">4.0</span>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;padding:20px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2)">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--gold)">1,660+</div>
-        <div style="font-size:11px;color:var(--muted)">Total Reviews</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:4px">Booking.com · Trip.com · Expedia</div>
-      </div>
-    </div>
-
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Probably one of the best and most affordable hotels in Patong Beach. The rooftop pool didn't disappoint — panoramic view overlooking sunset and Patong Beach. Rooms are quite large and spacious."</div>
-        <div style="display:flex;justify-content:space-between">
-          <div class="review-author">Verified Guest · Trip.com</div>
-          <div class="review-platform">Trip.com</div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"The location is very nice near everything literally, facilities are very good, the staff very cooperative. When I return to Phuket I will always choose Youdee Hotel."</div>
-        <div style="display:flex;justify-content:space-between">
-          <div class="review-author">Verified Guest · Booking.com</div>
-          <div class="review-platform">Booking.com</div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Great stay. Close to Patong beach, super friendly staff — especially Eye who was very helpful. Room was spacious and clean. Rooftop pool was amazing. Thank you."</div>
-        <div style="display:flex;justify-content:space-between">
-          <div class="review-author">Verified Guest · Expedia</div>
-          <div class="review-platform">Expedia</div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★☆</div>
-        <div class="review-text">"Convenient location with a modern feel and friendly staff. Rooftop pool is a highlight. Rooms are clean. A good and convenient choice for Patong — walking distance to beach and nightlife."</div>
-        <div style="display:flex;justify-content:space-between">
-          <div class="review-author">Verified Guest · Klook</div>
-          <div class="review-platform">Klook</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:24px;padding:20px;background:rgba(201,168,76,0.06);border-left:3px solid var(--gold)">
-      <div style="font-size:12px;font-weight:600;color:var(--gold);margin-bottom:8px">Investor Note: Review Score as Value Signal</div>
-      <p style="font-size:13px;color:var(--muted);line-height:1.6">The property's strong location and rooftop scores (4.4–4.5) confirm underlying asset quality. Cleanliness and housekeeping scores (3.5) represent a controllable, low-cost service improvement — a trained housekeeping supervisor and SOP overhaul can close this gap within 90 days. Branded operations and service excellence programs typically deliver +0.4–0.6 review score uplift, directly correlating with +8–12% ADR premium.</p>
-    </div>
+<div class="contact-footer">
+  <div>
+    <div class="cf-name">Monthon Mahakijdumrongnukul</div>
+    <div class="cf-title">Director · Joe Collection Hospitality Brokerage</div>
   </div>
-</section>
-
-<section class="section">
-  <div class="page">
-    <div class="s-eyebrow">08 · Investment Thesis Summary</div>
-    <div class="s-title serif">The Compelling Case<br/><em>for Acquisition</em></div>
-    <div class="s-rule"></div>
-
-    <div class="thesis-grid">
-      <div class="thesis-item">
-        <div class="ti-title">Structural Value Gap</div>
-        <div class="ti-body">At THB 350M (4.22M/key), the asset is priced at 44% of replacement cost and below the market value of the land alone. There is no scenario where an investor loses on intrinsic value — the land is the floor.</div>
-      </div>
-      <div class="thesis-item">
-        <div class="ti-title">Operational Alpha Available</div>
-        <div class="ti-body">All STAR metrics (RGI, MPI, ARI) are below 1.0, meaning the hotel is losing market share it should be winning. This is an operational problem with an operational solution — revenue management, branding, and distribution can recapture this yield within 18–24 months.</div>
-      </div>
-      <div class="thesis-item">
-        <div class="ti-title">Hard-Asset Downside Protection</div>
-        <div class="ti-body">Freehold Chanote title on 1-0-87 Rai of Hotel-zoned CBD Patong land. Market land prices in this precinct are 365 MB/Rai and rising. The acquisition price is effectively a land buy with a free hotel attached.</div>
-      </div>
-      <div class="thesis-item">
-        <div class="ti-title">Brand Affiliation Optionality</div>
-        <div class="ti-body">The property profile — 83 keys, rooftop pool, CBD location, neighbouring Holiday Inn and Marriott — is a prime candidate for IHG, Marriott Tribute Portfolio, Accor MGallery, or Hilton Curio soft-brand affiliation, delivering immediate ADR lift and GDS distribution.</div>
-      </div>
-      <div class="thesis-item">
-        <div class="ti-title">F&B & Ancillary Revenue Upside</div>
-        <div class="ti-body">The rooftop sky-pool and restaurant are materially under-monetised. A curated rooftop skybar with F&B activation targeting both hotel guests and walk-in Patong visitors can generate THB 8–15M in incremental annual revenue at minimal additional fixed cost.</div>
-      </div>
-      <div class="thesis-item">
-        <div class="ti-title">Macro Demand Tailwinds</div>
-        <div class="ti-body">Phuket saw 8.8M passenger arrivals in 2025, with full-year 2025 hotel occupancy at 79.5% and ADR up 7.8% to THB 5,652. Ongoing visa exemptions for India, Russia, China, and Australia, combined with improving regional air connectivity, underpin sustained demand growth through 2028.</div>
-      </div>
-    </div>
+  <div class="cf-middle">
+    <div class="cf-contact">📞 <a href="tel:+66806578387">+66 80-657-8387</a></div>
+    <div class="cf-contact">✉ <a href="mailto:joecollection.m@gmail.com">joecollection.m@gmail.com</a></div>
+    <div style="margin-top:10px;font-size:9px;color:var(--slate);letter-spacing:1.5px;">For viewing arrangements & NDA execution</div>
   </div>
-</section>
-
-<section id="contact">
-  <div style="padding:80px 0;background:var(--navy2)">
-    <div class="contact-inner">
-      <div class="contact-logo">JOE COLLECTION</div>
-      <div class="contact-logo-sub">HOSPITALITY ADVISORY · THAILAND</div>
-
-      <div style="width:48px;height:1px;background:var(--gold);margin:0 auto 32px"></div>
-
-      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--pale);margin-bottom:8px;font-style:italic">For further information, site visits, or NDA-protected data room access:</div>
-
-      <div class="contact-name serif">Monthon Mahakijdumrongnukul</div>
-      <div class="contact-title">Principal Advisor · JOE COLLECTION Hospitality</div>
-
-      <div class="contact-details">
-        <div class="cd-item">
-          <div class="cd-label">Mobile / WhatsApp</div>
-          <div class="cd-value">+66 80-657-8387</div>
-        </div>
-        <div class="cd-item">
-          <div class="cd-label">Email</div>
-          <div class="cd-value">joecollection.m@gmail.com</div>
-        </div>
-        <div class="cd-item">
-          <div class="cd-label">Property</div>
-          <div class="cd-value">200 Pee Rd, Patong, Phuket</div>
-        </div>
-      </div>
-
-      <div style="margin-top:40px;padding:24px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2)">
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Key Investment Parameters</div>
-        <div class="contact-params-grid">
-          <div><div style="color:var(--muted);margin-bottom:4px">Asking Price</div><div style="color:var(--white);font-weight:600">THB 350,000,000</div></div>
-          <div><div style="color:var(--muted);margin-bottom:4px">Keys</div><div style="color:var(--white);font-weight:600">83 Rooms</div></div>
-          <div><div style="color:var(--muted);margin-bottom:4px">Tenure</div><div style="color:var(--white);font-weight:600">Freehold Chanote</div></div>
-          <div><div style="color:var(--muted);margin-bottom:4px">Est. Exit Value</div><div style="color:var(--gold);font-weight:600">THB 580–720M</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="disclaimer" style="max-width:900px;margin:40px auto 0">
-      <strong style="color:var(--pale)">DISCLAIMER:</strong> This investment memorandum has been prepared by JOE COLLECTION for informational purposes only and does not constitute a solicitation to invest. All financial projections are forward-looking estimates based on current market conditions and publicly available data. Actual results may differ materially. Prospective investors should conduct their own independent due diligence and consult professional advisors. All figures in Thai Baht (THB). Market data sourced from Knight Frank, C9 Hotelworks, CBRE Thailand, and publicly available booking platforms as at May 2026.
-    </div>
+  <div class="cf-right">
+    <div class="cf-logo">Joe Collection</div>
+    <div class="cf-logo-sub">Thailand's Premium Hospitality Brokerage</div>
   </div>
-</section>
+</div>
 
-<script>
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target) target.scrollIntoView({behavior:'smooth'});
-  });
-});
-</script>
+<div class="disclaimer">
+  <p><strong>STRICTLY PRIVATE &amp; CONFIDENTIAL — FOR QUALIFIED INVESTORS ONLY</strong></p>
+  <p style="margin-top:6px;">This Investment Memorandum has been prepared by Joe Collection solely for informational purposes and does not constitute an offer to sell, a solicitation of an offer to buy, or a recommendation of any investment. All financial projections, IRR estimates, and return metrics are forward-looking statements based on market benchmarks, operator data, and comparable transaction analysis — they are not guarantees of future performance. Actual results may differ materially from those projected.</p>
+  <p style="margin-top:6px;">Market data sourced from: C9 Hotelworks Phuket Hotel &amp; Tourism Market Update 2026 · JLL Thailand Hospitality Report 2025 · Knight Frank Thailand H1 2025 · CBRE Phuket H1 2025 · Trip.com / Hotels.com / Booking.com / TripAdvisor guest review platforms · JFTB Real Estate Phuket. Replacement cost estimates are indicative based on industry construction cost benchmarks and land valuation data as at Q2 2025. This document must not be reproduced, distributed, or disclosed without prior written consent from Joe Collection.</p>
+  <p style="margin-top:6px;color:rgba(122,147,173,0.6);">Data as at June 2026 · Joe Collection · joecollection.m@gmail.com · +66 80-657-8387</p>
+</div>
+
 </body>
 </html>
